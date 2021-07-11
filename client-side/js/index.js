@@ -1,3 +1,4 @@
+import Footer from './components/Footer.js';
 import Header from "./components/Header.js";
 // import HomePage from "./pages/HomePage.js"
 // import ArtListPage from "./pages/ArtListPage.js"
@@ -16,6 +17,7 @@ function buildPage(){
     navigateToHistoryPage();
     navigateToAboutUsPage();
     navigateToContactPage();
+    footer();
 }
 
 const app = document.querySelector('#app');
@@ -23,6 +25,11 @@ const app = document.querySelector('#app');
 function header(){
     const headerElement = document.querySelector('.header');
     headerElement.innerHTML = Header();
+}
+
+function footer(){
+    const footerElement = document.querySelector('.footer');
+    footerElement.innerHTML = Footer();
 }
 
 function navigateToHomePage() {
