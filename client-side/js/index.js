@@ -1,3 +1,4 @@
+import Footer from './components/Footer.js';
 import Header from "./components/Header.js";
 
 
@@ -8,6 +9,7 @@ buildPage();
 
 function buildPage(){
     header();
+    footer();
 }
 
 function header(){
@@ -15,3 +17,7 @@ function header(){
     headerElement.innerHTML = Header();
 }
 
+function footer(){
+    const footerElement = document.querySelector('.footer');
+    footerElement.innerHTML = Footer();
+}
