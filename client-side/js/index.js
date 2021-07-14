@@ -44,8 +44,21 @@ function renderPaintingsList() {
 		apiActions.getRequest(
 			'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11',
 			(paintings) => {
-				// console.log(paintings)
+				console.log(paintings)
 				app.innerHTML = PaintingsPage(paintings);
+				for (let i = 0; i < paintings.objectIDs.length; i++) {
+					paintings.objectIDs[i];
+					apiActions.getRequest(
+						'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+							paintings.objectIDs[i],
+							
+						(painting) => {
+							console.log(painting)
+							document.getElementById(painting.objectID).innerText = painting.title;
+							// document.getElementById(painting.objectID).
+						}
+					);
+				}
 			}
 		);
 	});
