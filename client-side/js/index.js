@@ -1,18 +1,18 @@
 import apiActions from './api-actions/api-actions.js';
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
-// import ArtListPage from './components/ArtList.js'
 import PaintingsPage from './pages/PaintingsPage.js';
-// import HomePage from './pages/HomePage.js';
+
 
 // let app = document.querySelector('#app');
+
+const pullAmount = 25;
 
 buildPage();
 
 function buildPage() {
 	header();
 	footer();
-	// navigateToHomePage();
 	renderPaintingsList();
 }
 
@@ -26,13 +26,6 @@ function footer() {
 	footerElement.innerHTML = Footer();
 }
 
-// function navigateToHomePage() {
-// 	const homeButton = document.querySelector('.nav__list_home');
-// 	homeButton.addEventListener('click', () => {
-// 		app.innerHTML = HomePage();
-// 	});
-// }
-
 function renderPaintingsList() {
 	const paintingsListButton = document.querySelector(
 		'.nav__list_paintingsList'
@@ -44,18 +37,26 @@ function renderPaintingsList() {
 		apiActions.getRequest(
 			'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11',
 			(paintings) => {
+				console.log(paintings);
+				paintings.objectIDs = paintings.objectIDs.splice(0, pullAmount);
 				console.log(paintings)
 				app.innerHTML = PaintingsPage(paintings);
-				for (let i = 0; i < paintings.objectIDs.length; i++) {
+				for (let i = 0; i < pullAmount; i++) {
 					paintings.objectIDs[i];
 					apiActions.getRequest(
 						'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
 							paintings.objectIDs[i],
-							
 						(painting) => {
-							console.log(painting)
-							document.getElementById(painting.objectID).innerText = painting.title;
-							// document.getElementById(painting.objectID).
+							console.log(painting);
+							document.getElementById(
+								painting.objectID
+							).innerText = painting.title;
+							document.getElementById(
+								"artist" + painting.objectID
+							).innerText = painting.artistDisplayName;
+							document.getElementById(
+								"image" + painting.objectID
+							).src = painting.primaryImageSmall;
 						}
 					);
 				}
