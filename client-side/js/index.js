@@ -16,9 +16,9 @@ function buildPage() {
 	header();
 	footer();
 	renderArtPage();
+	renderAsianArtsList();
 	renderPaintingsList();
 	renderPrintsList();
-	renderAsianArtsList();
 }
 
 function header() {
@@ -37,6 +37,44 @@ function renderArtPage() {
 		console.log('render art page fired');
 		const app = document.querySelector('#app');
 		app.innerHTML = Art();
+	});
+}
+
+function renderAsianArtsList() {
+	const asianArtsListButton = document.querySelector(
+		'.nav__list_asianArtsList'
+	);
+	asianArtsListButton.addEventListener('click', () => {
+		console.log('render asian arts list fired');
+		const app = document.querySelector('#app');
+		apiActions.getRequest(
+			'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6',
+			(asianArts) => {
+				console.log(asianArts);
+				asianArts.objectIDs = asianArts.objectIDs.splice(0, pullAmount);
+				console.log(asianArts);
+				app.innerHTML = AsianArtsPage(asianArts);
+				for (let i = 0; i < pullAmount; i++) {
+					asianArts.objectIDs[i];
+					apiActions.getRequest(
+						'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+							asianArts.objectIDs[i],
+						(asianArt) => {
+							console.log(asianArts);
+							document.getElementById(
+								asianArt.objectID
+							).innerText = asianArt.title;
+							document.getElementById(
+								'artist' + asianArt.objectID
+							).innerText = asianArt.artistDisplayName;
+							document.getElementById(
+								'image' + asianArt.objectID
+							).src = asianArt.primaryImage;
+						}
+					);
+				}
+			}
+		);
 	});
 }
 
@@ -106,44 +144,6 @@ function renderPrintsList() {
 							document.getElementById(
 								'image' + print.objectID
 							).src = print.primaryImage;
-						}
-					);
-				}
-			}
-		);
-	});
-}
-
-function renderAsianArtsList() {
-	const asianArtsListButton = document.querySelector(
-		'.nav__list_asianArtsList'
-	);
-	asianArtsListButton.addEventListener('click', () => {
-		console.log('render asian arts list fired');
-		const app = document.querySelector('#app');
-		apiActions.getRequest(
-			'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6',
-			(asianArts) => {
-				console.log(asianArts);
-				asianArts.objectIDs = asianArts.objectIDs.splice(0, pullAmount);
-				console.log(asianArts);
-				app.innerHTML = AsianArtsPage(asianArts);
-				for (let i = 0; i < pullAmount; i++) {
-					asianArts.objectIDs[i];
-					apiActions.getRequest(
-						'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
-							asianArts.objectIDs[i],
-						(asianArt) => {
-							console.log(asianArts);
-							document.getElementById(
-								asianArt.objectID
-							).innerText = asianArt.title;
-							document.getElementById(
-								'artist' + asianArt.objectID
-							).innerText = asianArt.artistDisplayName;
-							document.getElementById(
-								'image' + asianArt.objectID
-							).src = asianArt.primaryImage;
 						}
 					);
 				}
