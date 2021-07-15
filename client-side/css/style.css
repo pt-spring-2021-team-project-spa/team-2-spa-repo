@@ -1,4 +1,11 @@
+#app{
+    background-color: whitesmoke;
+    margin: 2em;
+    padding: 1em;
+}
+
 body{
+    background-color: rgb(255, 72, 0);
     text-align: center;
 }
 .footer {
@@ -16,9 +23,9 @@ body{
 }
 
 .nav__list li {
-  background-color: darkcyan;
+  background-color: lime;
   border-radius: 6px;
-  color: #fff;
+  color: black;
   cursor: pointer;
   padding: 5px;
   margin-left: 20px;
