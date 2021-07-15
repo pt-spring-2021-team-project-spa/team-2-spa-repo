@@ -1,7 +1,8 @@
 export default function PaintingsPage(paintings) {
 	return `
   <div class="object__container">
-  <h1>The Paintings Page</h1>
+  <div class="object">
+  <h1>European Paintings</h1>
     ${paintings.objectIDs
 		.map((painting) => {
 			return `
@@ -11,6 +12,7 @@ export default function PaintingsPage(paintings) {
       `;
 		})
 		.join('')}
+    </div>
   </div>
   `;
 }

@@ -4,7 +4,7 @@ export default function Header() {
             <li class='nav__list_home'>Home</li>
             <li class='nav__list_artList'>Art</li>
             <li class='nav__list_asianArtsList'>Asian Art</li>
-            <li class='nav__list_paintingsList'>Paintings</li>
+            <li class='nav__list_paintingsList'>European Paintings</li>
             <li class='nav__list_printsList'>Drawings and Prints</li>
             <li class='nav__list_science'>Science</li>
             <li class='nav__list_history'>History</li>

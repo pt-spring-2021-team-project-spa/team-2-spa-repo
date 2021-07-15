@@ -8,7 +8,7 @@ import AsianArtsPage from './pages/AsianArtsPage.js';
 
 // let app = document.querySelector('#app');
 
-const pullAmount = 25;
+const pullAmount = 12;
 
 buildPage();
 
@@ -41,6 +41,7 @@ function renderArtPage() {
 }
 
 function renderAsianArtsList() {
+	// const artApp = document.querySelector('#app');
 	const asianArtsListButton = document.querySelector(
 		'.nav__list_asianArtsList'
 	);
