@@ -1,0 +1,27 @@
+body{
+    text-align: center;
+}
+.footer {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  background: #666;
+  color: #fff;
+  padding: 1em 0;
+  text-align: center;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: center;
+}
+
+.nav__list li {
+  background-color: darkcyan;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
