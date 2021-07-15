@@ -1,0 +1,11 @@
+.object__container {
+    text-align: center;
+    background-color: cadetblue;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 50px;
+}
+
+.object__container img {
+    max-height: 400px;
+}
