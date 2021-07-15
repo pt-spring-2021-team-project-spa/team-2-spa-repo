@@ -1,11 +1,11 @@
 #app{
-    background-color: whitesmoke;
+    background-color: turquoise;
     margin: 2em;
     padding: 1em;
 }
 
 body{
-    background-color: rgb(255, 72, 0);
+    background-color: whitesmoke;
     text-align: center;
 }
 .footer {
@@ -17,17 +17,79 @@ body{
   text-align: center;
 }
 
+
+
 .nav__list {
   display: flex;
   justify-content: center;
 }
 
-.nav__list li {
+.nav__list_home {
+  background-color: red;
+  border-radius: 6px;
+  color: indigo;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_artList {
+  background-color: orange;
+  border-radius: 6px;
+  color: blue;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_science {
+  background-color: yellow;
+  border-radius: 6px;
+  color: red;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_history {
   background-color: lime;
   border-radius: 6px;
-  color: black;
+  color: blue;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_games {
+  background-color: blue;
+  border-radius: 6px;
+  color: violet;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_aboutUs {
+  background-color: indigo;
+  border-radius: 6px;
+  color: yellow;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+  list-style-type: none;
+}
+
+.nav__list_contactUs {
+  background-color: violet;
+  border-radius: 6px;
+  color: lime;
+  cursor: pointer;
+  padding: 8px;
   margin-left: 20px;
   list-style-type: none;
 }
