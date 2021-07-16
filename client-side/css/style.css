@@ -1,11 +1,10 @@
 #app{
-    background-color: turquoise;
     margin: 2em;
     padding: 1em;
 }
 
 body{
-    background-color: whitesmoke;
+    background-color: turquoise;
     text-align: center;
 }
 .footer {
@@ -27,7 +26,7 @@ body{
 .nav__list_home {
   background-color: red;
   border-radius: 6px;
-  color: indigo;
+  color: lime;
   cursor: pointer;
   padding: 8px;
   margin-left: 20px;
@@ -57,7 +56,7 @@ body{
 .nav__list_history {
   background-color: lime;
   border-radius: 6px;
-  color: blue;
+  color: indigo;
   cursor: pointer;
   padding: 8px;
   margin-left: 20px;
@@ -87,7 +86,7 @@ body{
 .nav__list_contactUs {
   background-color: violet;
   border-radius: 6px;
-  color: lime;
+  color: blue;
   cursor: pointer;
   padding: 8px;
   margin-left: 20px;
