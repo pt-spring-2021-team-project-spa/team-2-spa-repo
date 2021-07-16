@@ -1,6 +1,6 @@
 import Footer from './components/Footer.js';
 import Header from "./components/Header.js";
-// import HomePage from "./pages/HomePage.js"
+import HomePage from "./pages/HomePage.js"
 // import ArtListPage from "./pages/ArtListPage.js"
 // import SciencePage from "./pages/SciencePage.js"
 // import HistoryPage from "./pages/HistoryPage.js"
