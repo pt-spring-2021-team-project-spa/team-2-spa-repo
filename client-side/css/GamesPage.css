@@ -1,0 +1,12 @@
+.games__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  padding: 1em 1em 1em;
+}
+
+.games__container article {
+  background: lightblue;
+  padding: 1em;
+}
