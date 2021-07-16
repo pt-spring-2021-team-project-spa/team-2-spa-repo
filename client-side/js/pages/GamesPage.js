@@ -1,6 +1,6 @@
 import "../../css/GamesPage.css";
 
-export default function () {
+export default function GamesPage() {
   return `
     <h1>Jackr Enterprises</h1>
     <h3>Mystery Educator Games</h3>
