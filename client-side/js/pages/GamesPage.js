@@ -5,9 +5,8 @@ export default function () {
     <h1>Jackr Enterprises</h1>
     <h3>Mystery Educator Games</h3>
     
-          <div class="games__container">
-            
-          
-          </div> 
+         <div class='container'>
+           <button class='button'>Click Me</button>
+         </div>
     `;
 }

@@ -18,6 +18,7 @@ function buildPage() {
   navigateToSciencePage();
   navigateToHistoryPage();
   navigateToGamesPage();
+  startGameButton();
   navigateToAboutUsPage();
   navigateToContactPage();
   footer();
@@ -84,4 +85,13 @@ function navigateToContactPage() {
   });
 }
 
-
+function startGameButton (){
+  const app = document.querySelector('#app');
+  app.addEventListener('click', (event) => {
+    if (event.target.classList.contains('button')){
+      const paraElem = document.createElement('p');
+      paraElem.innerText = 'Hello World';
+      app.appendChild(paraElem);
+    }
+  })
+}

@@ -1,3 +1,8 @@
+.button {
+  background-color: green;
+  border-radius: 8px;
+}
+
 .games__container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
