@@ -1,6 +1,6 @@
 import '../../css/HomePage.css';
 
-export default function(){
+export default function HomePage(){
     return `
     <div class="homePage__container">
     <h1>Jackr Enterprises</h1>
