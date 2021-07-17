@@ -8,8 +8,9 @@ export default function Header() {
             <li class='nav__list_printsList'>Drawings and Prints</li>
             <li class='nav__list_science'>Science</li>
             <li class='nav__list_history'>History</li>
-            <li class='nav__list_about'>About Us</li>
-            <li class='nav__list_contact'>Contact Us</li>
+            <li class='nav__list_games'>Games</li>
+            <li class='nav__list_aboutUs'>About Us</li>
+            <li class='nav__list_contactUs'>Contact Us</li>
         </ul>
     `;
 }

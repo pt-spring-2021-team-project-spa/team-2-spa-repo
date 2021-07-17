@@ -1,7 +1,7 @@
 export default function PrintsPage(prints) {
 	return `
-  <div class="object__container">
-  <div class="object">
+  <div class="artObject__container">
+  <div class="artObject">
   <h1>Drawings and Prints</h1>
     ${prints.objectIDs
 		.map((print) => {

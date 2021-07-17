@@ -6,19 +6,34 @@ import Header from './components/Header.js';
 import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
+import HomePage from "./pages/HomePage.js"
+// import SciencePage from "./pages/SciencePage.js"
+// import HistoryPage from './pages/HistoryPage.js'
+import WorldWondersPage from './pages/WorldWondersPage.js';
+// import WorldWonderPage from './pages/WorldWonderPage.js';
+// import AboutUsPage from "./pages/AboutUsPage.js"
+// import ContactUsPage from "./pages/ContactUsPage.js"
 
-const pullAmount = 12;
 
 buildPage();
 
 function buildPage() {
 	header();
 	footer();
+	navigateToHomePage();
+    navigateToSciencePage();
+    navigateToHistoryPage();
+    navigateToAboutUsPage();
+    navigateToContactPage();
 	renderArtPage();
 	renderAsianArtsList();
 	renderPaintingsList();
 	renderPrintsList();
 }
+
+const app = document.querySelector('#app');
+const pullAmount = 12;
+
 
 function header() {
 	const headerElement = document.querySelector('.header');
@@ -150,4 +165,55 @@ function renderPrintsList() {
 			}
 		);
 	});
+}
+
+
+function navigateToHomePage() {
+    const homeButton = document.querySelector('.nav__list_home');
+    homeButton.addEventListener('click', () => {
+        app.innerHTML = HomePage();
+    })
+}
+
+
+function navigateToSciencePage() {
+    const scienceButton = document.querySelector('.nav__list_science');
+    scienceButton.addEventListener('click', () => {
+        app.innerHTML = SciencePage();
+    })
+}
+
+function navigateToHistoryPage() {
+    const worldWondersButton = document.querySelector('.nav__list_history');
+    worldWondersButton.addEventListener('click', () => {
+        apiActions.getRequest('http://localhost:8080/worldWonders', (worldWonders) => {
+            app.innerHTML = WorldWondersPage(worldWonders);
+        });
+    });
+}
+
+// function renderWorldWonderInfo() {
+//     app.addEventListener('click', (event) => {
+//         if (event.target.classList.contains('worldWonder__name')) {
+//             const worldWonderUrl =
+//               event.target.parentElement.querySelector('#worldWonderId').value;
+//             apiActions.getRequest(worldWonderUrl, (worldWonder) => {
+//               app.innerHTML = WorldWonderPage(worldWonder);
+//             });
+//           }
+//     })
+// }
+
+function navigateToAboutUsPage() {
+    const aboutUsButton = document.querySelector('.nav__list_aboutUs');
+    aboutUsButton.addEventListener('click', () => {
+        app.innerHTML = AboutUsPage();
+    })
+}
+
+function navigateToContactPage() {
+    const contactPageButton = document.querySelector('.nav__list_contactUs');
+    contactPageButton.addEventListener('click', () => {
+        app.innerHTML = ContactUsPage();
+    })
 }

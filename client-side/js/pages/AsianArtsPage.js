@@ -1,7 +1,7 @@
 export default function AsianArtsPage(asianArts) {
 	return `
-  <div class="object__container">
-  <div class="object">
+  <div class="artObject__container">
+  <div class="artObject">
   <h1>The Asian Arts</h1>
     ${asianArts.objectIDs
 		.map((asianArt) => {

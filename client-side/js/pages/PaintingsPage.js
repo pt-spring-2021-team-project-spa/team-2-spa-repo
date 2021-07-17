@@ -1,7 +1,7 @@
 export default function PaintingsPage(paintings) {
 	return `
-  <div class="object__container">
-  <div class="object">
+  <div class="artObject__container">
+  <div class="artObject">
   <h1>European Paintings</h1>
     ${paintings.objectIDs
 		.map((painting) => {
