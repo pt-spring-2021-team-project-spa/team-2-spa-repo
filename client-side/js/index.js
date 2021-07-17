@@ -1,12 +1,11 @@
 import apiActions from './api-actions/api-actions.js';
-import Art from './pages/ArtPage.js';
+// import Art from './pages/ArtPage.js'
+import Art from './components/Art.js'
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
 import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
-
-// let app = document.querySelector('#app');
 
 const pullAmount = 12;
 
@@ -35,7 +34,7 @@ function renderArtPage() {
 	const artListButton = document.querySelector('.nav__list_artList');
 	artListButton.addEventListener('click', () => {
 		console.log('render art page fired');
-		const app = document.querySelector('#app');
+		let app = document.querySelector('#app');
 		app.innerHTML = Art();
 	});
 }
