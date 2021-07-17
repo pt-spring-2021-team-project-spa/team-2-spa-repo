@@ -14,23 +14,27 @@ public class WorldWonders {
     private Long id;
     private String name;
     private String location;
+    private String yearOfConstruction;
+    private String height;
+    private String length;
+    private String age;
+    private String funFact;
+    private String myth;
     private String imgUrl;
-
-    @OneToOne
-    private Numbers numbers;
-
-    @OneToOne
-    private Facts facts;
 
     public WorldWonders(){
 
     }
 
-    public WorldWonders(String name, String location, Numbers numbers, Facts facts, String imgUrl) {
+    public WorldWonders(String name, String location, String yearOfConstruction, String height, String length, String age, String funFact, String myth, String imgUrl) {
         this.name = name;
         this.location = location;
-        this.numbers = numbers;
-        this.facts = facts;
+        this.yearOfConstruction = yearOfConstruction;
+        this.height = height;
+        this.length = length;
+        this.age = age;
+        this.funFact = funFact;
+        this.myth = myth;
         this.imgUrl = imgUrl;
     }
 
@@ -46,12 +50,28 @@ public class WorldWonders {
         return location;
     }
 
-    public Numbers getNumbers() {
-        return numbers;
+    public String getYearOfConstruction() {
+        return yearOfConstruction;
     }
 
-    public Facts getFacts() {
-        return facts;
+    public String getHeight() {
+        return height;
+    }
+
+    public String getLength() {
+        return length;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getFunFact() {
+        return funFact;
+    }
+
+    public String getMyth() {
+        return myth;
     }
 
     public String getImgUrl(){
