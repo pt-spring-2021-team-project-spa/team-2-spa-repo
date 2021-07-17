@@ -21,12 +21,13 @@ public class WorldWonders {
     private String funFact;
     private String myth;
     private String imgUrl;
+    private String url;
 
     public WorldWonders(){
 
     }
 
-    public WorldWonders(String name, String location, String yearOfConstruction, String height, String length, String age, String funFact, String myth, String imgUrl) {
+    public WorldWonders(String name, String location, String yearOfConstruction, String height, String length, String age, String funFact, String myth, String imgUrl, String url) {
         this.name = name;
         this.location = location;
         this.yearOfConstruction = yearOfConstruction;
@@ -36,6 +37,7 @@ public class WorldWonders {
         this.funFact = funFact;
         this.myth = myth;
         this.imgUrl = imgUrl;
+        this.url = url;
     }
 
     public Long getId() {
@@ -76,6 +78,10 @@ public class WorldWonders {
 
     public String getImgUrl(){
         return imgUrl;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     @Override
