@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import Footer from "./components/Footer.js";
-=======
 import apiActions from './api-actions/api-actions.js';
 import Footer from './components/Footer.js';
->>>>>>> main
 import Header from "./components/Header.js";
 import HomePage from "./pages/HomePage.js";
 // import ArtListPage from "./pages/ArtListPage.js"
@@ -27,7 +23,6 @@ function buildPage() {
   navigateToSciencePage();
   navigateToHistoryPage();
   navigateToGamesPage();
-  startGameButton();
   navigateToAboutUsPage();
   navigateToContactPage();
   footer();
@@ -66,15 +61,13 @@ function navigateToSciencePage() {
   });
 }
 
-
-
-
-function navigateToGamesPage() {
-  const gamesButton = document.querySelector(".nav__list_games");
-  gamesButton.addEventListener("click", () => {
-    app.innerHTML = GamesPage();
-  });
+function navigateToGamesPage(){
+    const gamesButton =document.querySelector(".nav__list_games");
+    gamesButton.addEventListener("click", () =>{
+        app.innerHTML = GamesPage();
+    });
 }
+
   function navigateToHistoryPage() {
     const worldWondersButton = document.querySelector('.nav__list_history');
     worldWondersButton.addEventListener('click', () => {
@@ -109,3 +102,27 @@ function navigateToContactPage() {
     app.innerHTML = ContactUsPage();
   });
 }
+
+
+// function check() {
+//   var c = 0;
+//   var q1 = document.quiz.question1.value;
+//   var q2 = document.quiz.question2.value;
+//   var q3 = document.quiz.question3.value;
+//   var q4 = document.quiz.question4.value;
+//   var q5 = document.quiz.question5.value;
+//   var result = document.getElementById("result");
+//   if (q1 == "3") c++;
+//   if (q2 == "2") c++;
+//   if (q3 == "1") c++;
+//   if (q4 == "3") c++;
+//   if (q5 == "4") c++;
+
+//   if (c <= 3) {
+//     result.textContent =
+//       "Use promo code Trekr for a free gift based on age.";
+//   } else {
+//     result.textContent =
+//       "Use promo code winner for a free gift based on age";
+//   }
+// }
