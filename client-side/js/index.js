@@ -25,6 +25,7 @@ function buildPage() {
 	navigateToHomePage();
 	navigateToSciencePage();
 	navigateToHistoryPage();
+    navigateToGamesPage();
 	navigateToAboutUsPage();
 	navigateToContactPage();
 	renderArtPage();
@@ -205,6 +206,13 @@ window.onload=function(){
                 });
               }
         });
+  }
+
+  function navigateToGamesPage() {
+    const gamesButton = document.querySelector(".nav__list_games");
+    gamesButton.addEventListener("click", () => {
+      app.innerHTML = GamesPage();
+    });
   }
 
 function navigateToAboutUsPage() {
