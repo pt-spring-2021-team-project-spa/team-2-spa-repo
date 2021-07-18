@@ -8,4 +8,3 @@ function getRequest(location, callback) {
   export default {
     getRequest,
   };
-  
