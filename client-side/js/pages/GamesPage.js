@@ -42,6 +42,6 @@ export default function GamesPage() {
   </div>
   <input type="button" name="" value="Submit" onclick="check()">
 </form>
-<p id="result"></p>
+
     `;
 }
