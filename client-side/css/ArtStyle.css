@@ -1,3 +1,28 @@
+.art__list {
+    font-family: 'Architects Daughter', cursive;
+    list-style: none;
+    font-size: 2.4rem;
+    letter-spacing: .15rem;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 1.5rem;
+}
+
+.art__list li {
+    border: 1px solid #264653;
+    border-radius: 50px;
+    color: #fffffc;
+    background-color: #2a9d8f;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+}
+
+.art__list li:hover {
+    background-color: black;
+    color: #fdffb6;
+    cursor: pointer;
+}
+
 .artObject__container {
 	margin: 2rem auto;
 	padding: 2rem;
@@ -14,14 +39,17 @@
 }
 
 .artObject h1 {
+    font-family: 'Architects Daughter', cursive;
 	font-size: 2.8rem;
 }
 
 .artObject h2 {
+    font-family: 'Architects Daughter', cursive;
 	font-size: 2rem;
 }
 
 .artObject p {
+    font-family: 'Architects Daughter', cursive;
 	font-size: 1.5rem;
 }
 
