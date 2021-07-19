@@ -1,3 +1,5 @@
+import '../../css/ArtStyle.css';
+
 export default function Art() {
 	return `
     <h2>Art Categories</h2>

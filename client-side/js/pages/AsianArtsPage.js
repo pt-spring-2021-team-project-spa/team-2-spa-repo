@@ -1,3 +1,5 @@
+import '../../css/ArtStyle.css';
+
 export default function AsianArtsPage(asianArts) {
 	return `
   <div class="artObject__container">

@@ -1,3 +1,5 @@
+import '../../css/ArtStyle.css';
+
 export default function PaintingsPage(paintings) {
 	return `
   <div class="artObject__container">
