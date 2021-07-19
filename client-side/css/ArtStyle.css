@@ -1,10 +1,15 @@
 .art__list {
     font-family: 'Architects Daughter', cursive;
+    /* background-image: url(/images/art/kids-art.jpg); */
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-size:cover;
     list-style: none;
     font-size: 2.4rem;
     letter-spacing: .15rem;
     margin: 0 auto;
-    max-width: 500px;
+    /* max-width: 720px; */
     padding: 1.5rem;
 }
 
@@ -15,6 +20,7 @@
     background-color: #2a9d8f;
     margin: 1.5rem auto;
     padding: 1.5rem;
+    max-width: 500px;
 }
 
 .art__list li:hover {
