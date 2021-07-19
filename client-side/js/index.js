@@ -7,7 +7,7 @@ import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
-// import SciencePage from "./pages/SciencePage.js"
+import SciencePage from "./pages/SciencePage.js"
 // import HistoryPage from './pages/HistoryPage.js'
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
@@ -28,6 +28,7 @@ function buildPage() {
 	renderAsianArtsList();
 	renderPaintingsList();
 	renderPrintsList();
+	renderSciencePage();
 }
 
 const app = document.querySelector('#app');
@@ -176,6 +177,15 @@ function navigateToHomePage() {
 function navigateToSciencePage() {
 	const scienceButton = document.querySelector('.nav__list_science');
 	scienceButton.addEventListener('click', () => {
+		app.innerHTML = SciencePage();
+	});
+}
+
+function renderSciencePage() {
+	const scienceButton = document.querySelector('.nav__list_science');
+	scienceButton.addEventListener('click', () => {
+		console.log('render science page fired');
+		let app = document.querySelector('#app');
 		app.innerHTML = SciencePage();
 	});
 }
