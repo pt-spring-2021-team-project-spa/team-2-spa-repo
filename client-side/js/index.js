@@ -23,20 +23,21 @@ function buildPage() {
   header();
   footer();
   navigateToHomePage();
-  navigateToSciencePage();
+//   navigateToSciencePage();
   navigateToHistoryPage();
   navigateToAboutUsPage();
   navigateToContactPage();
   renderArtPage();
   renderAsianArtsList();
   renderPaintingsList();
+  renderPotdList();
   renderPrintsList();
   renderSciencePage();
 }
 
 const app = document.querySelector("#app");
 const pullAmount = 12;
-const NasaKey = WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM;
+let NasaKey = "WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM";
 
 
 function header() {
@@ -182,10 +183,12 @@ function renderSciencePage() {
 }
 
 function renderPotdList() {
+	
   const app = document.querySelector("#app");
   app.addEventListener("click", (event) => {
-    if (event.target.classList.contains(".science__list_exo")) {
-      apiActions.getRequest("https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM", Potd =>{
+	  console.log('render potd list firing')
+    if (event.target.classList.contains(".science__list_potd")) {
+      apiActions.getRequest("https://api.nasa.gov/planetary/apod?api_key=${NasaKey}", Potd =>{
 		  console.log(Potd);
 	  }
 		);
