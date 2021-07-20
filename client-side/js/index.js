@@ -7,7 +7,8 @@ import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
-// import SciencePage from "./pages/SciencePage.js"
+import RandomPage from './pages/RandomPage.js';
+// import SciencePage from "./pages/SciencePage.js";
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
@@ -19,14 +20,16 @@ function buildPage() {
 	header();
 	footer();
 	navigateToHomePage();
-	navigateToSciencePage();
+	//navigateToSciencePage();
 	navigateToHistoryPage();
+    navigateToRandomPage();
 	navigateToAboutUsPage();
 	navigateToContactPage();
 	renderArtPage();
 	renderAsianArtsList();
 	renderPaintingsList();
 	renderPrintsList();
+    getRandomHistory();
 }
 
 const app = document.querySelector('#app');
@@ -172,12 +175,12 @@ function navigateToHomePage() {
 	});
 }
 
-function navigateToSciencePage() {
-	const scienceButton = document.querySelector('.nav__list_science');
-	scienceButton.addEventListener('click', () => {
-		app.innerHTML = SciencePage();
-	});
-}
+// function navigateToSciencePage() {
+// 	const scienceButton = document.querySelector('.nav__list_science');
+// 	scienceButton.addEventListener('click', () => {
+// 		app.innerHTML = SciencePage();
+// 	});
+// }
 
 function navigateToHistoryPage() {
 	const worldWondersButton = document.querySelector('.nav__list_history');
@@ -203,6 +206,13 @@ window.onload=function(){
         });
   }
 
+  function navigateToRandomPage() {
+    const gamesButton = document.querySelector(".nav__list_random");
+    gamesButton.addEventListener("click", () => {
+      app.innerHTML = RandomPage();
+    });
+  }
+
 function navigateToAboutUsPage() {
 	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
 	aboutUsButton.addEventListener('click', () => {
@@ -218,3 +228,19 @@ function navigateToContactPage() {
 	});
 }
 
+const artResult = document.getElementById('art__result');
+const scienceResult = document.getElementById("science__result");
+const historyResult = document.getElementById("history__result");
+const artBtn = document.getElementById('art_btn');
+const scienceBtn = document.getElementById("science_btn");
+const historyBtn = document.getElementById("history_btn");
+
+historyBtn.addEventListener('click', getRandomHistory)
+
+function getRandomHistory(){
+    fetch("http://localhost:8080/worldWonders")
+        .then(res => res.json())
+        .then(data => {
+            histort__result.innerHTML = '${data.text}'
+        })
+}

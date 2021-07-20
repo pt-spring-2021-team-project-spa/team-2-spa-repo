@@ -1,0 +1,17 @@
+.button {
+  background-color: green;
+  border-radius: 8px;
+}
+
+.results__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  padding: 1em 1em 1em;
+}
+
+.result {
+  background: lightblue;
+  padding: 1em;
+}
