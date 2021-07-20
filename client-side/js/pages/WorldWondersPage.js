@@ -1,4 +1,5 @@
 import WorldWonders from '../components/WorldWonders.js';
+import '../../css/WorldWondersPage.css'
 
 export default function WorldWondersPage(worldWonders) {
   return `
