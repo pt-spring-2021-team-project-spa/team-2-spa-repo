@@ -1,3 +1,5 @@
+
+
 .art__list {
     font-family: 'Architects Daughter', cursive;
     /* background-image: url(/images/art/kids-art.jpg); */
@@ -43,19 +45,27 @@
 }
 
 .artObject__container {
+    display: flex;
+    justify-content: center;
+    /* flex-direction: row; */
 	margin: 2rem auto;
 	padding: 2rem;
 	border-radius: 50px;
-	max-width: 720px;
+	max-width: 600px;
+    max-height:min-content;
 	text-align: center;
 	letter-spacing: 0.015rem;
 	background-color: cadetblue;
 }
 
 .artObject {
-    font-family: 'Architects Daughter', cursive;
-	display: flex;
-	flex-direction: column;
+    /* text-align: center; */
+    /* justify-content: center; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* align-content: space-between ; */
+    /* margin-top: 2rem; */
+    /* font-family: 'Architects Daughter', cursive; */
 }
 
 .artObject h1 {
@@ -63,14 +73,48 @@
 }
 
 .artObject h2 {
+    /* max-width: 200px; */
 	font-size: 2rem;
 }
 
-.artObject p {
-	font-size: 1.5rem;
+.artObjectInfo {
+    border: 1px solid blue;
+    z-index: 1;
+    position: absolute;
+    left: 35%;
+    /* margin-top: 100px; */
+    max-width: 350px;
+    overflow: auto;
+    /* top: 25%; */
+    /* color: cadetblue; */
+	font-size: 1.2rem;
+    background-color: white;
 }
 
+.artObjectInfo p {
+
+}
+
+/* .artObject p:hover {
+    color: black;
+} */
+
 .artObject img {
+    border-radius: 10px;
+    z-index: 2;
+    position: relative;
 	max-height: 100%;
 	max-width: 100%;
+}
+
+.artObject img:hover {
+    /* transition-delay: 100ms; */
+    transition-timing-function: ease-in-out;
+    transition-duration: 250ms;
+    opacity: 15%;
+}
+
+#selectedDepartment {
+    text-transform: uppercase;
+    border: 10px solid yellow;
 }

@@ -31,7 +31,7 @@ function buildPage() {
 }
 
 const app = document.querySelector('#app');
-const pullAmount = 3;
+const pullAmount = 1;
 
 function header() {
 	const headerElement = document.querySelector('.header');
@@ -60,7 +60,7 @@ function renderAsianArtsList() {
 				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6',
 				(asianArts) => {
 					console.log(asianArts);
-					const randomNum = Math.floor(Math.random() * 3000) + 1;
+					const randomNum = Math.floor(Math.random() * 444) + 1;
 					asianArts.objectIDs = asianArts.objectIDs.splice(
 						randomNum,
 						pullAmount
@@ -80,6 +80,12 @@ function renderAsianArtsList() {
 								document.getElementById(
 									'artist' + asianArt.objectID
 								).innerText = asianArt.artistDisplayName;
+								document.getElementById(
+									'year' + asianArt.objectID
+								).innerText = asianArt.objectDate;
+								document.getElementById(
+									'medium' + asianArt.objectID
+								).innerText = asianArt.medium;
 								document.getElementById(
 									'image' + asianArt.objectID
 								).src = asianArt.primaryImage;
@@ -141,7 +147,10 @@ function renderPrintsList() {
 				(prints) => {
 					console.log(prints);
 					const randomNum = Math.floor(Math.random() * 444) + 1;
-					prints.objectIDs = prints.objectIDs.splice(randomNum, pullAmount);
+					prints.objectIDs = prints.objectIDs.splice(
+						randomNum,
+						pullAmount
+					);
 					console.log(prints);
 					app.innerHTML = PrintsPage(prints);
 					for (let i = 0; i < pullAmount; i++) {
@@ -195,17 +204,19 @@ function navigateToHistoryPage() {
 	});
 }
 
-window.onload=function(){
-        app.addEventListener('click', (event) => {
-            if (event.target.classList.contains('worldWonder__name')) {
-                const worldWonderUrl =
-                  event.target.parentElement.querySelector('#worldWonderId').value;
-                apiActions.getRequest(worldWonderUrl, (worldWonder) => {
-                  app.innerHTML = WorldWonderPage(worldWonder);
-                });
-              }
-        });
-  }
+window.onload = function () {
+	app.addEventListener('click', (event) => {
+		if (event.target.classList.contains('worldWonder__name')) {
+			const worldWonderUrl =
+				event.target.parentElement.querySelector(
+					'#worldWonderId'
+				).value;
+			apiActions.getRequest(worldWonderUrl, (worldWonder) => {
+				app.innerHTML = WorldWonderPage(worldWonder);
+			});
+		}
+	});
+};
 
 function navigateToAboutUsPage() {
 	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
@@ -215,10 +226,8 @@ function navigateToAboutUsPage() {
 }
 
 function navigateToContactPage() {
-
 	const contactPageButton = document.querySelector('.nav__list_contactUs');
 	contactPageButton.addEventListener('click', () => {
 		app.innerHTML = ContactUsPage();
 	});
 }
-
