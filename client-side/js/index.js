@@ -31,7 +31,7 @@ function buildPage() {
 }
 
 const app = document.querySelector('#app');
-const pullAmount = 12;
+const pullAmount = 3;
 
 function header() {
 	const headerElement = document.querySelector('.header');
@@ -60,8 +60,9 @@ function renderAsianArtsList() {
 				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6',
 				(asianArts) => {
 					console.log(asianArts);
+					const randomNum = Math.floor(Math.random() * 3000) + 1;
 					asianArts.objectIDs = asianArts.objectIDs.splice(
-						0,
+						randomNum,
 						pullAmount
 					);
 					console.log(asianArts);
@@ -99,8 +100,9 @@ function renderPaintingsList() {
 				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11',
 				(paintings) => {
 					console.log(paintings);
+					const randomNum = Math.floor(Math.random() * 444) + 1;
 					paintings.objectIDs = paintings.objectIDs.splice(
-						0,
+						randomNum,
 						pullAmount
 					);
 					console.log(paintings);
@@ -138,7 +140,8 @@ function renderPrintsList() {
 				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=9',
 				(prints) => {
 					console.log(prints);
-					prints.objectIDs = prints.objectIDs.splice(0, pullAmount);
+					const randomNum = Math.floor(Math.random() * 444) + 1;
+					prints.objectIDs = prints.objectIDs.splice(randomNum, pullAmount);
 					console.log(prints);
 					app.innerHTML = PrintsPage(prints);
 					for (let i = 0; i < pullAmount; i++) {

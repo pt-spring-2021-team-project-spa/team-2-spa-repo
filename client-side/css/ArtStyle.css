@@ -9,18 +9,31 @@
     font-size: 2.4rem;
     letter-spacing: .15rem;
     margin: 0 auto;
-    /* max-width: 720px; */
+    max-width: 720px;
     padding: 1.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 .art__list li {
     border: 1px solid #264653;
     border-radius: 50px;
     color: #fffffc;
-    background-color: #2a9d8f;
-    margin: 1.5rem auto;
+    margin: 1.5rem;
     padding: 1.5rem;
     max-width: 500px;
+}
+
+.art__list_asianArtsList {
+    background-color: red;
+}
+
+.art__list_paintingsList {
+    background-color: green;
+}
+
+.art__list_printsList {
+    background-color: blue;
 }
 
 .art__list li:hover {
@@ -40,22 +53,20 @@
 }
 
 .artObject {
+    font-family: 'Architects Daughter', cursive;
 	display: flex;
 	flex-direction: column;
 }
 
 .artObject h1 {
-    font-family: 'Architects Daughter', cursive;
 	font-size: 2.8rem;
 }
 
 .artObject h2 {
-    font-family: 'Architects Daughter', cursive;
 	font-size: 2rem;
 }
 
 .artObject p {
-    font-family: 'Architects Daughter', cursive;
 	font-size: 1.5rem;
 }
 
