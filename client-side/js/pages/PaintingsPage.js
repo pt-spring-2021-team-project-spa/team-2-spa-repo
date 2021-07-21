@@ -7,9 +7,9 @@ export default function PaintingsPage(paintings) {
   <li id="selectedDepartment" class="art__list_paintingsList">European Paintings</li>
   <li class='art__list_printsList'>Drawings and Prints</li>
 </ul>
+<h1>European Paintings</h1>
   <div class="artObject__container">
   <div class="artObject">
-  <h1>European Paintings</h1>
     ${paintings.objectIDs
 		.map((painting) => {
 			return `

@@ -2,28 +2,23 @@
 
 .art__list {
     font-family: 'Architects Daughter', cursive;
-    /* background-image: url(/images/art/kids-art.jpg); */
-    background-position-x: center;
-    background-position-y: center;
-    background-repeat: no-repeat;
-    background-size:cover;
     list-style: none;
-    font-size: 2.4rem;
+    font-size: 2rem;
     letter-spacing: .15rem;
     margin: 0 auto;
     max-width: 720px;
-    padding: 1.5rem;
+    padding: 1.2rem;
     display: flex;
     justify-content: center;
 }
 
 .art__list li {
-    border: 1px solid #264653;
+    border: 2px solid #264653;
     border-radius: 50px;
     color: #fffffc;
     margin: 1.5rem;
-    padding: 1.5rem;
-    max-width: 500px;
+    padding: 1.2rem;
+    /* max-width: 500px; */
 }
 
 .art__list_asianArtsList {
@@ -116,5 +111,11 @@
 
 #selectedDepartment {
     text-transform: uppercase;
-    border: 10px solid yellow;
+    border: 5px solid yellow;
+}
+
+@media screen and (max-width: 720px) {
+    .art__list {
+        flex-direction: column;
+    }
 }
