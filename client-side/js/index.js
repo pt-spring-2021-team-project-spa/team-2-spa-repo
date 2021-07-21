@@ -8,13 +8,11 @@ import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
 // import SciencePage from "./pages/SciencePage.js"
-// import HistoryPage from "./pages/HistoryPage.js"
 import GamesPage from "./pages/GamesPage.js";
 import GameOfArtPage from "./pages/GameOfArtPage.js";
-// import HistoryPage from './pages/HistoryPage.js'
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
-// import AboutUsPage from "./pages/AboutUsPage.js"
+import AboutUsPage from "./pages/AboutUsPage.js"
 // import ContactUsPage from "./pages/ContactUsPage.js"
 
 buildPage();
