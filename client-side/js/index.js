@@ -23,7 +23,6 @@ function buildPage() {
   header();
   footer();
   navigateToHomePage();
-//   navigateToSciencePage();
   navigateToHistoryPage();
   navigateToAboutUsPage();
   navigateToContactPage();
@@ -31,6 +30,7 @@ function buildPage() {
   renderAsianArtsList();
   renderPaintingsList();
   renderPotdPage();
+  renderRoverPage();
   renderPrintsList();
   renderSciencePage();
 }
@@ -165,14 +165,6 @@ function navigateToHomePage() {
   });
 }
 
-// function navigateToSciencePage() {
-//   const scienceButton = document.querySelector(".nav__list_science");
-//   scienceButton.addEventListener("click", () => {
-//     getRequest();
-//     app.innerHTML = SciencePage();
-//   });
-// }
-
 function renderSciencePage() {
   const scienceButton = document.querySelector(".nav__list_science");
   scienceButton.addEventListener("click", () => {
@@ -182,24 +174,40 @@ function renderSciencePage() {
 }
 
 function renderPotdPage() {
-	const app = document.querySelector('#app');
-	app.addEventListener('click', (event) => {
-	  if (event.target.parentElement.classList.contains('science__list')) {
-		const potD = document.querySelector('.science__list_potd');
-		potD.addEventListener('click', () => {
-		  apiActions.getRequest(
-			'https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM',
-			(photo) => {
-			  console.log('photo', photo);
-			  app.innerHTML = PotdPage(photo);
-			}
-		  );
-		});
-	  }
-	});
-  }
+  const app = document.querySelector("#app");
+  app.addEventListener("click", (event) => {
+    if (event.target.parentElement.classList.contains("science__list")) {
+      const potD = document.querySelector(".science__list_potd");
+      potD.addEventListener("click", () => {
+        apiActions.getRequest(
+          "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
+          (photo) => {
+            console.log("photo", photo);
+            app.innerHTML = PotdPage(photo);
+          }
+        );
+      });
+    }
+  });
+}
 
-
+function renderRoverPage() {
+  const app = document.querySelector("#app");
+  app.addEventListener("click", (event) => {
+    if (event.target.parentElement.classList.contains("science__list")) {
+      const Rover = document.querySelector(".science__list_rover");
+      Rover.addEventListener("click", () => {
+        apiActions.getRequest(
+          "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
+          (photos) => {
+            console.log("photo", photos);
+            app.innerHTML = RoverPage(photos);
+          }
+        );
+      });
+    }
+  });
+}
 
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
