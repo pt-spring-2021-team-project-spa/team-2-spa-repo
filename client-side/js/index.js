@@ -10,7 +10,7 @@ import AsianArtsPage from "./pages/AsianArtsPage.js";
 import HomePage from "./pages/HomePage.js";
 import SatEarthPage from "./pages/SatEarthPage.js";
 import SciencePage from "./pages/SciencePage.js";
-import PotdPage from './pages/PotdPage.js';
+import PotdPage from "./pages/PotdPage.js";
 // import HistoryPage from './pages/HistoryPage.js'
 import WorldWondersPage from "./pages/WorldWondersPage.js";
 import WorldWonderPage from "./pages/WorldWonderPage.js";
@@ -23,7 +23,7 @@ function buildPage() {
   header();
   footer();
   navigateToHomePage();
-  //   navigateToSciencePage();
+//   navigateToSciencePage();
   navigateToHistoryPage();
   navigateToAboutUsPage();
   navigateToContactPage();
@@ -166,11 +166,11 @@ function navigateToHomePage() {
 }
 
 // function navigateToSciencePage() {
-// 	const scienceButton = document.querySelector('.nav__list_science');
-// 	scienceButton.addEventListener('click', () => {
-// 		getRequest()
-// 		app.innerHTML = SciencePage();
-// 	});
+//   const scienceButton = document.querySelector(".nav__list_science");
+//   scienceButton.addEventListener("click", () => {
+//     getRequest();
+//     app.innerHTML = SciencePage();
+//   });
 // }
 
 function renderSciencePage() {
@@ -182,17 +182,24 @@ function renderSciencePage() {
 }
 
 function renderPotdPage() {
-  const PotdButton = document.querySelector(".science__list_potd");
-  PotdButton.addEventListener("click", () => {
-      const app = document.querySelector("#app");
-      apiActions.getRequest(
-        "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
-        (Potd) => {
-          app.innerHTML = PotdPage(Potd);
-        }
-      );
-  });
-}
+	const app = document.querySelector('#app');
+	app.addEventListener('click', (event) => {
+	  if (event.target.parentElement.classList.contains('science__list')) {
+		const potD = document.querySelector('.science__list_potd');
+		potD.addEventListener('click', () => {
+		  apiActions.getRequest(
+			'https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM',
+			(photo) => {
+			  console.log('photo', photo);
+			  app.innerHTML = PotdPage(photo);
+			}
+		  );
+		});
+	  }
+	});
+  }
+
+
 
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
