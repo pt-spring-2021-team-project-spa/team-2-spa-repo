@@ -94,7 +94,7 @@ function renderAsianArtsList() {
 								).innerText = asianArt.medium;
 								document.getElementById(
 									'image' + asianArt.objectID
-								).src = asianArt.primaryImage;
+								).src = asianArt.primaryImageSmall;
 							}
 						);
 					}
@@ -197,7 +197,7 @@ function renderPrintsList() {
 								).innerText = print.artistDisplayName;
 								document.getElementById(
 									'image' + print.objectID
-								).src = print.primaryImage;
+								).src = print.primaryImageSmall;
 							}
 						);
 					}
