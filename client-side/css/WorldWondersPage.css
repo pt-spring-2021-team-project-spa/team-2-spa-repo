@@ -1,7 +1,7 @@
 .worldWonders__container {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr ;
 }
   
 .worldWonder__name {
@@ -27,12 +27,16 @@
   background: rgb(255, 255, 255);
   border-radius: 50px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-  padding: 15px;
+  padding: 10px;
   text-align: center;
-}
-
-.thumb {
+  height: 100px;
   background-size: cover;
   background-position: center center;
+}
 
+.content-wrapper p {
+  font-family:monospace;
+  font-size:x-large;
+  font-style:italic;
+  color: rgb(51, 255, 0);
 } 

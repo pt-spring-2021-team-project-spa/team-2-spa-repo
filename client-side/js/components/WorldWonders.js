@@ -8,10 +8,9 @@ export default function WorldWonders(worldWonders) {
             return `
                 <div class="worldWonder__tile_container">
                     <div class="test">
-                        <div class="content-wrapper">
+                        <div class="content-wrapper" >
                             <input type="hidden" id="worldWonderId" value=${worldWonder.url} />
                             <h2 class="worldWonder__name">${worldWonder.name}</h2>
-                            <img class="thumb" src="${worldWonder.imgUrl}"/>
                         </div>
                     </div>
                 </div>
