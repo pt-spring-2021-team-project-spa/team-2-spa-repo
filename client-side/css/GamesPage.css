@@ -1,17 +1,51 @@
-.button {
-  background-color: green;
-  border-radius: 8px;
+.outside_container{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.games__container {
+.quiz_container {
+  width: 600px;
+  max-width: 70%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+.btn_grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
-  grid-column-gap: 1em;
-  padding: 1em 1em 1em;
+  grid-template-columns: repeat(2, auto);
+  gap: 5px;
+  margin: 15px 0;
 }
 
-.games__container article {
-  background: lightblue;
-  padding: 1em;
+.btn {
+  border: 1px solid;
+  background-color: teal;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.btn:hover{
+  border-color: lime;
+}
+
+.start_btn, .next_btn {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
 }

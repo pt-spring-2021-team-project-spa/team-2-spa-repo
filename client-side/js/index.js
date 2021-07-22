@@ -9,7 +9,6 @@ import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
 // import SciencePage from "./pages/SciencePage.js"
 import GamesPage from "./pages/GamesPage.js";
-import GameOfArtPage from "./pages/GameOfArtPage.js";
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
@@ -34,6 +33,19 @@ function buildPage() {
 
 const app = document.querySelector('#app');
 const pullAmount = 12;
+
+
+
+function navigateToGamesPage() {
+  const gamesButton = document.querySelector(".nav__list_games");
+  gamesButton.addEventListener("click", () => {
+    app.innerHTML = GamesPage();
+  });
+}
+
+
+
+
 
 function header() {
 	const headerElement = document.querySelector('.header');
@@ -206,12 +218,7 @@ window.onload=function(){
         });
   }
 
-  function navigateToGamesPage() {
-    const gamesButton = document.querySelector(".nav__list_games");
-    gamesButton.addEventListener("click", () => {
-      app.innerHTML = GamesPage();
-    });
-  }
+  
 
 function navigateToAboutUsPage() {
   const aboutUsButton = document.querySelector(".nav__list_aboutUs");
@@ -228,23 +235,4 @@ function navigateToContactPage() {
 }
 
 
- function check() {
-  var c = 0;
-  var q1 = document.quiz.question1.value;
-  var q2 = document.quiz.question2.value;
-  var q3 = document.quiz.question3.value;
-  var q4 = document.quiz.question4.value;
-  var q5 = document.quiz.question5.value;
-  var result = document.getElementById("result");
-  if (q1 == "3") c++;
-  if (q2 == "2") c++;
-  if (q3 == "1") c++;
-  if (q4 == "3") c++;
-  if (q5 == "4") c++;
 
-  if (c <= 3) {
-   result.textContent = "Use promo code Trekr for a free gift based on age.";
-  } else {
-    result.textContent = "Use promo code winner for a free gift based on age";
-  }
-};

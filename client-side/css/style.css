@@ -92,34 +92,3 @@ body {
 	list-style-type: none;
 }
 
-.artObject__container {
-	margin: 2rem auto;
-	padding: 2rem;
-	border-radius: 50px;
-	max-width: 720px;
-	text-align: center;
-	letter-spacing: 0.015rem;
-	background-color: cadetblue;
-}
-
-.artObject {
-	display: flex;
-	flex-direction: column;
-}
-
-.artObject h1 {
-	font-size: 2.8rem;
-}
-
-.artObject h2 {
-	font-size: 2rem;
-}
-
-.artObject p {
-	font-size: 1.5rem;
-}
-
-.artObject img {
-	max-height: 100%;
-	max-width: 100%;
-}
