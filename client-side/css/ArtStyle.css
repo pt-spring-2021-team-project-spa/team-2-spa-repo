@@ -1,13 +1,11 @@
-
-
 .art__list {
     font-family: 'Architects Daughter', cursive;
     list-style: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: .15rem;
     margin: 0 auto;
-    max-width: 720px;
-    padding: 1.2rem;
+    /* max-width: 720px; */
+    /* padding: 1.2rem; */
     display: flex;
     justify-content: center;
 }
@@ -16,8 +14,8 @@
     border: 2px solid #264653;
     border-radius: 50px;
     color: #fffffc;
-    margin: 1.5rem;
-    padding: 1.2rem;
+    margin: 1.5rem auto;
+    padding: .5rem;
     /* max-width: 500px; */
 }
 
@@ -46,7 +44,7 @@
 	margin: 2rem auto;
 	padding: 2rem;
 	border-radius: 50px;
-	max-width: 600px;
+	/* max-width: 600px; */
     max-height:min-content;
 	text-align: center;
 	letter-spacing: 0.015rem;
@@ -54,11 +52,13 @@
 }
 
 .artObject {
-    /* text-align: center; */
+    text-align: left;
+    letter-spacing: .03rem;
+    line-height: 1.9rem;
     /* justify-content: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* align-content: space-between ; */
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: space-evenly ;
     /* margin-top: 2rem; */
     /* font-family: 'Architects Daughter', cursive; */
 }
@@ -94,11 +94,21 @@
     color: black;
 } */
 
+.artObjectList {
+    flex:2;
+}
+.artImage {
+    flex:3;
+    display: flex;
+    max-height: 800px;
+    /* max-width: 100%; */
+}
+
 .artObject img {
     border-radius: 10px;
     z-index: 2;
     position: relative;
-	max-height: 100%;
+	/* max-height: 100%; */
 	max-width: 100%;
 }
 
@@ -117,5 +127,21 @@
 @media screen and (max-width: 720px) {
     .art__list {
         flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .art__list li {
+        margin: .2rem auto;
+    }
+
+    .artObject {
+        flex-direction: column;
+        text-align: center;
+        display: inline;
+        max-height: 100%;
+    }
+
+    .artImage {
+        /* max-height: 325px; */
     }
 }
