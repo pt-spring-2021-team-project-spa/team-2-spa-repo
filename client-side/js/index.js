@@ -84,6 +84,12 @@ function renderAsianArtsList() {
 									'year' + asianArt.objectID
 								).innerText = asianArt.objectDate;
 								document.getElementById(
+									'artistNationality' + asianArt.objectID
+								).innerText = asianArt.artistNationality;
+								document.getElementById(
+									'country' + asianArt.objectID
+								).innerText = asianArt.country;
+								document.getElementById(
 									'medium' + asianArt.objectID
 								).innerText = asianArt.medium;
 								document.getElementById(
@@ -124,12 +130,23 @@ function renderPaintingsList() {
 									painting.objectID
 								).innerText = painting.title;
 								document.getElementById(
+									'year' + painting.objectID
+								).innerText = painting.objectDate;
+								document.getElementById(
+									'artistNationality' + painting.objectID
+								).innerText = painting.artistNationality;
+								document.getElementById(
+									'country' + painting.objectID
+								).innerText = painting.country;
+								document.getElementById(
+									'medium' + painting.objectID
+								).innerText = painting.medium;
+								document.getElementById(
 									'artist' + painting.objectID
 								).innerText = painting.artistDisplayName;
 								document.getElementById(
 									'image' + painting.objectID
-								).src = painting.primaryImageSmall;
-							}
+								).src = painting.primaryImageSmall;							}
 						);
 					}
 				}
@@ -163,6 +180,18 @@ function renderPrintsList() {
 								document.getElementById(
 									print.objectID
 								).innerText = print.title;
+								document.getElementById(
+									'year' + print.objectID
+								).innerText = print.objectDate;
+								document.getElementById(
+									'artistNationality' + print.objectID
+								).innerText = print.artistNationality;
+								document.getElementById(
+									'country' + print.objectID
+								).innerText = print.country;
+								document.getElementById(
+									'medium' + print.objectID
+								).innerText = print.medium;
 								document.getElementById(
 									'artist' + print.objectID
 								).innerText = print.artistDisplayName;

@@ -7,26 +7,38 @@ export default function AsianArtsPage(asianArts) {
       <li class="art__list_paintingsList">European Paintings</li>
       <li class='art__list_printsList'>Drawings and Prints</li>
   </ul>
-  <h1>The Asian Arts</h1>
-  <p>Hover over the image to find out the Artist, Year and Medium!</p>
   <div class="artObject__container">
   <div class="artObject">
         ${asianArts.objectIDs
 			.map((asianArt) => {
 				return `
-              <h2 id="${asianArt}">[title-thinking]</h2>
-              <div class="artObjectInfo">
-              <p>Artist:</p>
-              <p id="artist${asianArt}">[artist-thinking]</p>
-              </br>
-              <p>Year:</p>
-              <p id="year${asianArt}">[year-thinking]</p>
-              </br>
-              <p>Medium:</p>
-              <p id="medium${asianArt}">[medium-thinking]</p>
-              </div>
-              <img id="image${asianArt}" src="" alt='[image-thinking]'/>
-            `;
+        <div class="artImage">
+        <img id="image${asianArt}" src="" alt='[image-thinking]'/>
+        </div>
+        <div class="artObjectList">
+        <h2 id="${asianArt}">[title-thinking]</h2>
+        <div class="artArtist">
+        <span>Artist: </span>
+        <span id="artist${asianArt}">[artist-thinking]</span>
+        </div>
+        <div class="artYear">
+          <span>Year:</span>
+          <span id="year${asianArt}">[year-thinking]</span>
+        </div>
+          <div class="artArtistNationality">
+            <span>Nationality: </span>
+            <span id="artistNationality${asianArt}">[artist-nationality-thinking]</sp>
+          </div>
+          <div class="artCountry">
+            <span>Country: </span>
+            <span id="country${asianArt}">[country-thinking]</span>
+          </div>
+          <div class="artMedium">
+            <span>Medium:</span>
+            <span id="medium${asianArt}">[meidum-thinking]</span>
+          </div>
+          </div>
+          </br>            `;
 			})
 			.join('')}
     </div>

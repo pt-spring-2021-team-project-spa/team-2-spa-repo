@@ -112,16 +112,12 @@
 	max-width: 100%;
 }
 
-.artObject img:hover {
-    /* transition-delay: 100ms; */
-    transition-timing-function: ease-in-out;
-    transition-duration: 250ms;
-    opacity: 15%;
-}
 
 #selectedDepartment {
     text-transform: uppercase;
     border: 5px solid yellow;
+    padding: 2rem;
+    margin: 0 auto;
 }
 
 @media screen and (max-width: 720px) {

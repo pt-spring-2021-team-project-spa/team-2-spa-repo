@@ -17,10 +17,6 @@ export default function PrintsPage(prints) {
       </div>
       <div class="artObjectList">
       <h2 id="${print}">[title-thinking]</h2>
-      <div class="artTitle">
-      <span>Title:</span>
-      <span id="${print}">[title-thinking]</span>
-      </div>
       <div class="artArtist">
       <span>Artist: </span>
       <span id="artist${print}">[artist-thinking]</span>
