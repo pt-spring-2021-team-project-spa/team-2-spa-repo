@@ -43,4 +43,11 @@
 
 .add__worldWonder, #test5{
    margin: 2rem;  font-size: 20px;
+   background-color: rgb(109, 196, 120);
+	border-radius: 6px;
+	color: blue;
+	cursor: pointer;
+	padding: 8px;
+	margin-left: 20px;
+	list-style-type: none;
 }

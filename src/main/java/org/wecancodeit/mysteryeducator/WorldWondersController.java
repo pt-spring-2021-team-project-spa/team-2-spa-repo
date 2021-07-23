@@ -1,10 +1,8 @@
-package org.wecancodeit.mysteryeducator.controllers;
+package org.wecancodeit.mysteryeducator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
-import org.wecancodeit.mysteryeducator.models.WorldWonders;
-import org.wecancodeit.mysteryeducator.repositories.WorldWondersRepository;
 
 import javax.annotation.Resource;
 import java.util.Collection;
@@ -39,12 +37,13 @@ public class WorldWondersController {
         String worldWonderFunFact = newWorldWonder.getString("worldWonderFunFact");
         String worldWonderMyth = newWorldWonder.getString("worldWonderMyth");
         String worldWonderImgUrl = newWorldWonder.getString("worldWonderImgUrl");
-        Optional<WorldWonders> worldWondersToAddOpt = worldWondersRepo.findByName(worldWonderName);
+        String worldWonderUrl = newWorldWonder.getString("worldWonderUrl");
+        Optional<WorldWonders> worldWondersToAddOpt = worldWondersRepo.findByUrl(worldWonderUrl);
 
         if (worldWondersToAddOpt.isEmpty()) {
-            WorldWonder worldWonderToAdd = new WorldWonder(worldWonderName,worldWonderLocation,worldWonderYearOfConstruction,worldWonderHeight,worldWonderLength,worldWonderAge,worldWonderFunFact,worldWonderMyth,worldWonderImgUrl);
+            WorldWonders worldWonderToAdd = new WorldWonders(worldWonderName,worldWonderLocation,worldWonderYearOfConstruction,worldWonderHeight,worldWonderLength,worldWonderAge,worldWonderFunFact,worldWonderMyth,worldWonderImgUrl,worldWonderUrl);
             worldWondersRepo.save(worldWonderToAdd);
         }
-        return Collection<WorldWonders> worldWonderRepo.findAll();
+        return (Collection<WorldWonders>) worldWondersRepo.findAll();
     }
 }

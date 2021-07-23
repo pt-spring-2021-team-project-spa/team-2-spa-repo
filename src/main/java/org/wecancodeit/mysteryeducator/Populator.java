@@ -1,7 +1,5 @@
 package org.wecancodeit.mysteryeducator;
 
-import org.wecancodeit.mysteryeducator.models.WorldWonders;
-import org.wecancodeit.mysteryeducator.repositories.WorldWondersRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

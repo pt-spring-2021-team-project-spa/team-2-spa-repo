@@ -10,6 +10,7 @@ export default function AddWorldWonderPage(){
             <input id="test5" class="add_worldWonder__funFact" type="text" placeholder="Fun Fact About Wonder"/>
             <input id="test5" class="add_worldWonder__myth" type="text" placeholder="Myth About Wonder"/>
             <input id="test5" class="add_worldWonder__imgUrl" type="text" placeholder="Image url of Wonder"/>
+            <input id="test5" class="add_worldWonder__url" type="text" placeholder="Url of Wonder"/>
             <button id="test5" class="add_worldWonder__submit">Save</button>
         </section>
     `

@@ -230,7 +230,8 @@ function navigateToHistoryPage() {
 				app.innerHTML = WorldWondersPage(worldWonders);
 			}
 		);
-		addWorldWonder();
+		navToAddWorldWonder();
+		
 	});
 
 	
@@ -247,40 +248,54 @@ window.onload = function () {
 				app.innerHTML = WorldWonderPage(worldWonder);
 			});
 		}
+		createWonder();
 	});
 };
 
-function addWorldWonder(){
+function navToAddWorldWonder(){
 	app.addEventListener('click', ()=>{
 		const navToAdd = document.querySelector('.add__worldWonder');
 			navToAdd.addEventListener('click', ()=>{
 				app.innerHTML = AddWorldWonderPage();
 			})
-
-			
-		app.addEventListener('click', ()=>{
-			if(event.target.classList.contains('add_worldWonder__submit')){			
-				const worldWonderName = event.target.parentElement.querySelector('.add_worldWonder__name').value;
-				apiActions.postRequest('http://localhost:8080/create-worldWonder',{
-					worldWonderName: worldWonderName,
-					worldWonderLocation: worldWonderLocation,
-					worldWonderYearOfConstruction: worldWonderYearOfConstruction,
-					worldWonderHeight: worldWonderHeight,
-					worldWonderLength: worldWonderLength,
-					worldWonderAge: worldWonderAge,
-					worldWonderFunFact: worldWonderFunFact,
-					worldWonderMyth: worldWonderMyth,
-					worldWonderImgUrl: worldWonderImgUrl
-				}, (worldWonders) => app.innerHTML = WorldWonders(worldWonders));
-			}
-		})
 	});
 }
 
-// 		const addWorldWonderButton = document.querySelector('.add_worldWonder__submit')
-		// addWorldWonderButton.addEventListener('click',()=>{
-		// console.log('FIRING!');
-		// })
+function createWonder() {
+	app.addEventListener('click', (event)=>{
+		if(event.target.classList.contains('add_worldWonder__submit')){			
+			const worldWonderName = event.target.parentElement.querySelector('.add_worldWonder__name').value;
+			const worldWonderLocation = event.target.parentElement.querySelector('.add_worldWonder__location').value;
+			const worldWonderYearOfConstruction = event.target.parentElement.querySelector('.add_worldWonder__yearOfConstruction').value;
+			const worldWonderHeight = event.target.parentElement.querySelector('.add_worldWonder__height').value;
+			const worldWonderLength = event.target.parentElement.querySelector('.add_worldWonder__length').value;
+			const worldWonderAge = event.target.parentElement.querySelector('.add_worldWonder__age').value;
+			const worldWonderFunFact = event.target.parentElement.querySelector('.add_worldWonder__funFact').value;
+			const worldWonderMyth = event.target.parentElement.querySelector('.add_worldWonder__myth').value;
+			const worldWonderImgUrl = event.target.parentElement.querySelector('.add_worldWonder__imgUrl').value;
+			const worldWonderUrl = event.target.parentElement.querySelector('.add_worldWonder__url').value;
+			apiActions.postRequest('http://localhost:8080/create-worldWonder',{
+				worldWonderName: worldWonderName,
+				worldWonderLocation: worldWonderLocation,
+				worldWonderYearOfConstruction: worldWonderYearOfConstruction,
+				worldWonderHeight: worldWonderHeight,
+				worldWonderLength: worldWonderLength,
+				worldWonderAge: worldWonderAge,
+				worldWonderFunFact: worldWonderFunFact,
+				worldWonderMyth: worldWonderMyth,
+				worldWonderImgUrl: worldWonderImgUrl,
+				worldWonderUrl: worldWonderUrl
+			}, (worldWonders) => app.innerHTML = WorldWonders(worldWonders));
+
+			apiActions.getRequest(
+				'http://localhost:8080/worldWonders',
+				(worldWonders) => {
+					app.innerHTML = WorldWondersPage(worldWonders);
+				}
+			);
+		}
+	});
+}
 
 function navigateToAboutUsPage() {
 	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
