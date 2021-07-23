@@ -167,12 +167,11 @@ function renderSciencePage() {
   const scienceButton = document.querySelector(".nav__list_science");
   scienceButton.addEventListener("click", () => {
     const app = document.querySelector("#app"),
-    randomMonth = Math.floor(Math.random() * 11) + 1,
-    randomDay = Math.floor(Math.random() * 28) + 1,
-    fullDate = "date=2020" + randomMonth + randomDay + "&";
+    randomMonth = Math.floor(Math.random() * 1) + 1,
+    randomDay = Math.floor(Math.random() * 18) + 10,
+    fullDate = "&date=2020" + "-" + randomMonth + "-" + randomDay;
     apiActions.getRequest(
-      "https://api.nasa.gov/planetary/apod?api_key=xgUKiS3GZfXdcS5EGBrtwrFDyAndJSWcBQahlRzX" +
-        fullDate,
+      "https://api.nasa.gov/planetary/apod?api_key=xgUKiS3GZfXdcS5EGBrtwrFDyAndJSWcBQahlRzX" + fullDate,
       (photo) => {
         console.log("photo", photo);
         app.innerHTML = SciencePage(photo);
