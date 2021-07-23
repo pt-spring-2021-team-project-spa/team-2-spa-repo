@@ -1,9 +1,5 @@
-.outside_container{
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.outer_container{
+ 
 }
 
 .quiz_container {
@@ -11,41 +7,9 @@
   max-width: 70%;
   background-color: whitesmoke;
   border-radius: 5px;
-  padding: 10px;
+  padding: 30px;
   box-shadow: 0 0 10px 2px;
+  text-align: justify;
 }
 
-.btn_grid {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  gap: 5px;
-  margin: 15px 0;
-}
 
-.btn {
-  border: 1px solid;
-  background-color: teal;
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: white;
-}
-
-.btn:hover{
-  border-color: lime;
-}
-
-.start_btn, .next_btn {
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 10px 20px;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hide {
-  display: none;
-}

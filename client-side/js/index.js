@@ -23,6 +23,7 @@ function buildPage() {
 	navigateToSciencePage();
 	navigateToHistoryPage();
     navigateToGamesPage();
+	result();
 	navigateToAboutUsPage();
 	navigateToContactPage();
 	renderArtPage();
@@ -35,6 +36,31 @@ const app = document.querySelector('#app');
 const pullAmount = 12;
 
 
+const submitButton = document.querySelector(".submit_Btn")
+function result(){
+	var score = 0;
+	if(document.getElementById('correct1').checked)
+	{
+		score++;
+	}
+	if (document.getElementById("correct2").checked) {
+    score++;
+  }
+  if (document.getElementById("correct3").checked) {
+    score++;
+  }
+  if (document.getElementById("correct4").checked) {
+    score++;
+  }
+  if (document.getElementById("correct5").checked) {
+    score++;
+  }
+  
+  submitButton.addEventListener("click", () => {
+    return alert("Your score is: " + score);;
+  });
+  
+}
 
 function navigateToGamesPage() {
   const gamesButton = document.querySelector(".nav__list_games");
