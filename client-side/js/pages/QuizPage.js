@@ -1,10 +1,10 @@
-import "../../css/GamesPage.css";
+import "../../css/QuizPage.css";
 
-export default function GamesPage() {
+export default function QuizPage() {
   return `
     <h1>Jackr Enterprises</h1>
     <h3>Mystery Educator Games</h3>
-   <div class="outer_container">
+  
     <div class="quiz_container">
     <h2>Q1: What are the 3 subjects we talk about?</h2>
     <input type="radio" name="question1" id="correct1">Art, Science, and History<br>
@@ -36,10 +36,10 @@ export default function GamesPage() {
     <input type="radio" name="question5" >5 feet tall<br>
     <input type="radio" name="question5" id="correct5">98 feet tall<br>
     
-    <input class="submit_Btn" type="submit" name="submit" value="submitQuiz" onclick="result()">
+    <input class="submit_Btn" type="submit" name="submit" value="Submit Quiz" id="result">
     
     </div>
-    <p id="number_correct"></p>
-    </div>
+    <p class="number_right" id="number_correct"></p>
+    
     `;
 }

@@ -11,16 +11,19 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "babel-jest": "^27.0.6",
     "jest": "^27.0.6",
     "parcel": "^2.0.0-beta.2"
+
   },
   "extends": "@parcel/config-default",
-	"transformers": {
-		"*.jpg": ["@parcel/transformer-raw"]
-	}
+  "transformers": {
+    "*.jpg": [
+      "@parcel/transformer-raw"
+    ]
+
+  }
 }
