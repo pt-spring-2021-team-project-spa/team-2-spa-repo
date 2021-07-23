@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
-
 #app {
 	margin: 2em;
 	padding: 1em;
@@ -65,7 +64,7 @@ body {
 	list-style-type: none;
 }
 
-.nav__list_games {
+.nav__list_quiz {
 	background-color: blue;
 	border-radius: 6px;
 	color: violet;

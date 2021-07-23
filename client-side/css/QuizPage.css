@@ -1,0 +1,90 @@
+.quiz_container {
+  width: 2400px;
+  max-width: 95%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  margin-top: 25px;
+  padding: 30px;
+  box-shadow: 0 0 10px 2px;
+  text-align: justify;
+}
+
+.quiz_p{
+  font-weight: bold;
+}
+
+.submit_Btn{
+  background-color: indigo;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  margin-top: 20px;
+}
+.q1{
+  background-color: chartreuse;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+
+.q2{
+  background-color: lightblue;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+
+.q3{
+  background-color: red;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+.q4{
+  background-color: yellow;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+.q5{
+  background-color: violet;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+
+.q6{
+  background-color: orange;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  margin: 5px;
+}
+.Q_1_2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  padding: 1em 1em 1em;
+}
+
+.Q_3_4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  padding: 1em 1em 1em;
+}
+
+.Q_5_6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 1em;
+  padding: 1em 1em 1em;
+}

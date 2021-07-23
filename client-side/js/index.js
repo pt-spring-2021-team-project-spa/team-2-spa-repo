@@ -1,45 +1,38 @@
-import apiActions from "./api-actions/api-actions.js";
-// import Art from './pages/ArtPage.js'
+import apiActions from './api-actions/api-actions.js';
+import Art from './components/Art.js';
+import Footer from './components/Footer.js';
+import Header from './components/Header.js';
+import PaintingsPage from './pages/PaintingsPage.js';
+import PrintsPage from './pages/PrintsPage.js';
+import AsianArtsPage from './pages/AsianArtsPage.js';
+import HomePage from './pages/HomePage.js';
+import SciencePage from "./pages/SciencePage.js"
+import QuizPage from "./pages/QuizPage.js";
+import WorldWondersPage from './pages/WorldWondersPage.js';
+import WorldWonderPage from './pages/WorldWonderPage.js';
+import AboutUsPage from "./pages/AboutUsPage.js"
 
-import Art from "./components/Art.js";
-import Footer from "./components/Footer.js";
-import Header from "./components/Header.js";
-import PaintingsPage from "./pages/PaintingsPage.js";
-import PrintsPage from "./pages/PrintsPage.js";
-// import RoverPage from "./pages/RoverPage.js";
-import AsianArtsPage from "./pages/AsianArtsPage.js";
-import HomePage from "./pages/HomePage.js";
-// import SatEarthPage from "./pages/SatEarthPage.js";
-import SciencePage from "./pages/SciencePage.js";
-// import PotdPage from "./pages/PotdPage.js";
-// import HistoryPage from './pages/HistoryPage.js'
-import WorldWondersPage from "./pages/WorldWondersPage.js";
-import WorldWonderPage from "./pages/WorldWonderPage.js";
-// import AboutUsPage from "./pages/AboutUsPage.js"
-// import ContactUsPage from "./pages/ContactUsPage.js"
 
 buildPage();
 
 function buildPage() {
-
-  header();
-  footer();
-  navigateToHomePage();
-  navigateToHistoryPage();
-  navigateToAboutUsPage();
-  navigateToContactPage();
-  renderArtPage();
-  renderAsianArtsList();
-  renderPaintingsList();
-  //   renderPotdPage();
-  renderPrintsList();
-  renderSciencePage();
+	header();
+	footer();
+	navigateToHomePage();
+	renderSciencePage();
+	navigateToHistoryPage();
+    navigateToQuizPage();
+	result();
+	navigateToAboutUsPage();
+	renderArtPage();
+	renderAsianArtsList();
+	renderPaintingsList();
+	renderPrintsList();
 }
 
 
 const app = document.querySelector('#app');
 const pullAmount = 1;
-
 
 function header() {
   const headerElement = document.querySelector(".header");
@@ -231,24 +224,6 @@ function renderSciencePage() {
   });
 }
 
-// function renderPotdPage() {
-//   const app = document.querySelector("#app");
-//   app.addEventListener("click", (event) => {
-//     if (event.target.parentElement.classList.contains("science__list")) {
-//       const potD = document.querySelector(".science__list_potd");
-//       potD.addEventListener("click", () => {
-//         apiActions.getRequest(
-//           "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
-//           (photo) => {
-//             console.log("photo", photo);
-//             app.innerHTML = PotdPage(photo);
-//           }
-//         );
-//       });
-//     }
-//   });
-// }
-
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
   worldWondersButton.addEventListener("click", () => {
@@ -276,10 +251,78 @@ window.onload = function () {
 
 };
 
+function navigateToQuizPage() {
+  const quizButton = document.querySelector(".nav__list_quiz");
+  quizButton.addEventListener("click", () => {
+    app.innerHTML = QuizPage();
+  });
+}  
+  
 function navigateToAboutUsPage() {
-	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
-	aboutUsButton.addEventListener('click', () => {
-		app.innerHTML = AboutUsPage();
-	});
+  const aboutUsButton = document.querySelector(".nav__list_aboutUs");
+  aboutUsButton.addEventListener("click", () => {
+    app.innerHTML = AboutUsPage();
+  });
 }
 
+function result() {
+  const app = document.querySelector("#app");
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("submit_Btn")) {
+      var score = 0;
+      if (document.getElementById("correct1").checked) {
+        score++;
+      }
+      if (document.getElementById("correct2").checked) {
+        score++;
+      }
+      if (document.getElementById("correct3").checked) {
+        score++;
+      }
+      if (document.getElementById("correct4").checked) {
+        score++;
+      }
+      if (document.getElementById("correct5").checked) {
+        score++;
+    } if (document.getElementById("correct6").checked) {
+      score++;
+    } 
+	if (score == 0) {
+      number_correct.textContent =
+        "Your result is " +
+        score +
+        " right. Please try again";
+    } else if (score == 1) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Beginner Trekr for a free gift based on age.";
+    } else if (score == 2) {
+      number_correct.textContent =
+        "Your result is " +
+        score +
+        " right. Use promo code Intermediate Trekr for a free gift based on age.";
+    } else if (score == 3) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Experienced Trekr for a free gift based on age.";
+      } else if (score == 4) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Advanced Trekr for a free gift based on age.";
+      } else if (score == 5) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Awesome Trekr for a free gift based on age.";
+      } else {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Ultimate Trekr for our grand prize based on age";
+      }
+    }
+  });
+}

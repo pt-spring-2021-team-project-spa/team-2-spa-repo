@@ -1,6 +1,7 @@
 .homePage__container{
   background-color: rgb(245, 204, 243);
   border-radius: 50px;
+  line-height: 40px;
 }
 
 .home__span{
