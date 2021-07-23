@@ -242,10 +242,3 @@ function navigateToAboutUsPage() {
 		app.innerHTML = AboutUsPage();
 	});
 }
-
-// function navigateToContactPage() {
-// 	const contactPageButton = document.querySelector('.nav__list_contactUs');
-// 	contactPageButton.addEventListener('click', () => {
-// 		app.innerHTML = ContactUsPage();
-// 	});
-// }
