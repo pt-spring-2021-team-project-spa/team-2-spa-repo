@@ -3,7 +3,7 @@ import "../../css/QuizPage.css";
 export default function QuizPage() {
   return `
     <h1>Jackr Enterprises</h1>
-    <h3>Mystery Educator Games</h3>
+    <h3>Mystery Educator Quiz</h3>
   
     <div class="quiz_container">
     <div class="Q_1_2">
@@ -47,7 +47,7 @@ export default function QuizPage() {
     <input type="radio" name="question5" id="correct5">98 feet tall<br>
     </article>
     <article class="q6">
-    <h2>Q6: For the science subject what are studying ?</h2>
+    <h2>Q6: For the science subject what are we studying ?</h2>
     <input type="radio" name="question6" >Smithsonian<br>
     <input type="radio" name="question6" id="correct6">NASA<br>
     <input type="radio" name="question6" >Met Museum<br>
