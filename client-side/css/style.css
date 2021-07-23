@@ -95,17 +95,3 @@ body {
 	list-style-type: none;
 }
 
-.Science__title{
-	font-family: Orbitron, sans-serif;
-	font-size: 3.236rem;
-	font-weight: bold;
-}
-
-.potd__container_explianation {
-	font-family: Orbitron, sans-serif;
-	font-size: 1.618rem;
-	line-height: 2.5rem;
-	margin: 2rem;
-	padding: 2rem;
-
-}
