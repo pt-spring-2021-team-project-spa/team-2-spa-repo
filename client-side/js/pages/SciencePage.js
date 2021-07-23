@@ -1,3 +1,5 @@
+import '../../css/ScienceStyle.css';
+
 export default function SciencePage() {
   return `
     <h2>Science Categories</h2>
