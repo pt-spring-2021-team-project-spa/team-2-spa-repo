@@ -289,6 +289,8 @@ function result() {
       }
       if (document.getElementById("correct5").checked) {
         score++;
+    } if (document.getElementById("correct6").checked) {
+      score++;
     } 
 	if (score == 0) {
       number_correct.textContent =
@@ -304,13 +306,18 @@ function result() {
       number_correct.textContent =
         "Your result is " +
         score +
-        " right. Use promo code Experienced Trekr for a free gift based on age.";
+        " right. Use promo code Intermediate Trekr for a free gift based on age.";
     } else if (score == 3) {
         number_correct.textContent =
           "Your result is " +
           score +
-          " right. Use promo code Advanced Trekr for a free gift based on age.";
+          " right. Use promo code Experienced Trekr for a free gift based on age.";
       } else if (score == 4) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Advanced Trekr for a free gift based on age.";
+      } else if (score == 5) {
         number_correct.textContent =
           "Your result is " +
           score +
