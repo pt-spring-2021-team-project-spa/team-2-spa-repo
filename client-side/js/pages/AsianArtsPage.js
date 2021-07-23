@@ -7,7 +7,7 @@ export default function AsianArtsPage(asianArts) {
       <li class="art__list_paintingsList">European Paintings</li>
       <li class='art__list_printsList'>Drawings and Prints</li>
   </ul>
-  <div class="artObject__container">
+  <div class="artObject__container" id="asianArtsPage">
   <div class="artObject">
         ${asianArts.objectIDs
 			.map((asianArt) => {
@@ -17,24 +17,20 @@ export default function AsianArtsPage(asianArts) {
         </div>
         <div class="artObjectList">
         <h2 id="${asianArt}">[title-thinking]</h2>
-        <div class="artArtist">
-        <span>Artist: </span>
-        <span id="artist${asianArt}">[artist-thinking]</span>
-        </div>
         <div class="artYear">
-          <span>Year:</span>
+          <span><b>Date:</b></span>
           <span id="year${asianArt}">[year-thinking]</span>
         </div>
+        <div class="artArtist">
+        <span><b>Artist:</b></span>
+        <span id="artist${asianArt}">[artist-thinking]</span>
+        </div>
           <div class="artArtistNationality">
-            <span>Nationality: </span>
+            <span><b>Nationality:</b></span>
             <span id="artistNationality${asianArt}">[artist-nationality-thinking]</sp>
           </div>
-          <div class="artCountry">
-            <span>Country: </span>
-            <span id="country${asianArt}">[country-thinking]</span>
-          </div>
           <div class="artMedium">
-            <span>Medium:</span>
+            <span><b>Medium:</b></span>
             <span id="medium${asianArt}">[meidum-thinking]</span>
           </div>
           </div>
