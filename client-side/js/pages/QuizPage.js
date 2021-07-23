@@ -15,7 +15,7 @@ export default function QuizPage() {
     <input type="radio" name="question1" >Art, Geography, and Health<br>
     </article>
     <article class="q2">
-    <h2>Q2: What is one of the 7 Wonders of the World?</h2>
+    <h2>Q2: What is one of the Wonders of the World?</h2>
     <input type="radio" name="question2" >Brooklyn Bridge<br>
     <input type="radio" name="question2" >Statue of Liberty<br>
     <input type="radio" name="question2" >Smokey Mountains<br>

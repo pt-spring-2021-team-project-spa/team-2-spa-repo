@@ -224,24 +224,6 @@ function renderSciencePage() {
   });
 }
 
-// function renderPotdPage() {
-//   const app = document.querySelector("#app");
-//   app.addEventListener("click", (event) => {
-//     if (event.target.parentElement.classList.contains("science__list")) {
-//       const potD = document.querySelector(".science__list_potd");
-//       potD.addEventListener("click", () => {
-//         apiActions.getRequest(
-//           "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
-//           (photo) => {
-//             console.log("photo", photo);
-//             app.innerHTML = PotdPage(photo);
-//           }
-//         );
-//       });
-//     }
-//   });
-// }
-
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
   worldWondersButton.addEventListener("click", () => {
