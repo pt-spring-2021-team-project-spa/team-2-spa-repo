@@ -1,5 +1,6 @@
 import apiActions from "./api-actions/api-actions.js";
 // import Art from './pages/ArtPage.js'
+
 import Art from "./components/Art.js";
 import Footer from "./components/Footer.js";
 import Header from "./components/Header.js";
@@ -34,8 +35,10 @@ function buildPage() {
   renderSciencePage();
 }
 
-const app = document.querySelector("#app");
-const pullAmount = 12;
+
+const app = document.querySelector('#app');
+const pullAmount = 1;
+
 
 function header() {
   const headerElement = document.querySelector(".header");
@@ -57,103 +60,150 @@ function renderArtPage() {
 }
 
 function renderAsianArtsList() {
-  const app = document.querySelector("#app");
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("art__list_asianArtsList")) {
-      apiActions.getRequest(
-        "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6",
-        (asianArts) => {
-          console.log(asianArts);
-          asianArts.objectIDs = asianArts.objectIDs.splice(0, pullAmount);
-          console.log(asianArts);
-          app.innerHTML = AsianArtsPage(asianArts);
-          for (let i = 0; i < pullAmount; i++) {
-            asianArts.objectIDs[i];
-            apiActions.getRequest(
-              "https://collectionapi.metmuseum.org/public/collection/v1/objects/" +
-                asianArts.objectIDs[i],
-              (asianArt) => {
-                console.log(asianArts);
-                document.getElementById(asianArt.objectID).innerText =
-                  asianArt.title;
-                document.getElementById(
-                  "artist" + asianArt.objectID
-                ).innerText = asianArt.artistDisplayName;
-                document.getElementById("image" + asianArt.objectID).src =
-                  asianArt.primaryImage;
-              }
-            );
-          }
-        }
-      );
-    }
-  });
+
+	const app = document.querySelector('#app');
+	app.addEventListener('click', (event) => {
+		if (event.target.classList.contains('art__list_asianArtsList')) {
+			apiActions.getRequest(
+				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=6',
+				(asianArts) => {
+					console.log(asianArts);
+					const randomNum = Math.floor(Math.random() * 444) + 1;
+					asianArts.objectIDs = asianArts.objectIDs.splice(
+						randomNum,
+						pullAmount
+					);
+					console.log(asianArts);
+					app.innerHTML = AsianArtsPage(asianArts);
+					for (let i = 0; i < pullAmount; i++) {
+						asianArts.objectIDs[i];
+						apiActions.getRequest(
+							'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+								asianArts.objectIDs[i],
+							(asianArt) => {
+								console.log(asianArts);
+								document.getElementById(
+									asianArt.objectID
+								).innerText = asianArt.title;
+								document.getElementById(
+									'artist' + asianArt.objectID
+								).innerText = asianArt.artistDisplayName;
+								document.getElementById(
+									'year' + asianArt.objectID
+								).innerText = asianArt.objectDate;
+								document.getElementById(
+									'artistNationality' + asianArt.objectID
+								).innerText = asianArt.artistNationality;
+								document.getElementById(
+									'medium' + asianArt.objectID
+								).innerText = asianArt.medium;
+								document.getElementById(
+									'image' + asianArt.objectID
+								).src = asianArt.primaryImageSmall;
+							}
+						);
+					}
+				}
+			);
+		}
+	});
 }
 
 function renderPaintingsList() {
-  const app = document.querySelector("#app");
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("art__list_paintingsList")) {
-      apiActions.getRequest(
-        "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11",
-        (paintings) => {
-          console.log(paintings);
-          paintings.objectIDs = paintings.objectIDs.splice(0, pullAmount);
-          console.log(paintings);
-          app.innerHTML = PaintingsPage(paintings);
-          for (let i = 0; i < pullAmount; i++) {
-            paintings.objectIDs[i];
-            apiActions.getRequest(
-              "https://collectionapi.metmuseum.org/public/collection/v1/objects/" +
-                paintings.objectIDs[i],
-              (painting) => {
-                console.log(painting);
-                document.getElementById(painting.objectID).innerText =
-                  painting.title;
-                document.getElementById(
-                  "artist" + painting.objectID
-                ).innerText = painting.artistDisplayName;
-                document.getElementById("image" + painting.objectID).src =
-                  painting.primaryImageSmall;
-              }
-            );
-          }
-        }
-      );
-    }
-  });
+	const app = document.querySelector('#app');
+	app.addEventListener('click', (event) => {
+		if (event.target.classList.contains('art__list_paintingsList')) {
+			apiActions.getRequest(
+				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11',
+				(paintings) => {
+					console.log(paintings);
+					const randomNum = Math.floor(Math.random() * 444) + 1;
+					paintings.objectIDs = paintings.objectIDs.splice(
+						randomNum,
+						pullAmount
+					);
+					console.log(paintings);
+					app.innerHTML = PaintingsPage(paintings);
+					for (let i = 0; i < pullAmount; i++) {
+						paintings.objectIDs[i];
+						apiActions.getRequest(
+							'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+								paintings.objectIDs[i],
+							(painting) => {
+								console.log(painting);
+								document.getElementById(
+									painting.objectID
+								).innerText = painting.title;
+								document.getElementById(
+									'year' + painting.objectID
+								).innerText = painting.objectDate;
+								document.getElementById(
+									'artistNationality' + painting.objectID
+								).innerText = painting.artistNationality;
+								document.getElementById(
+									'medium' + painting.objectID
+								).innerText = painting.medium;
+								document.getElementById(
+									'artist' + painting.objectID
+								).innerText = painting.artistDisplayName;
+								document.getElementById(
+									'image' + painting.objectID
+								).src = painting.primaryImageSmall;							}
+						);
+					}
+				}
+			);
+		}
+	});
 }
 
 function renderPrintsList() {
-  const app = document.querySelector("#app");
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("art__list_printsList")) {
-      apiActions.getRequest(
-        "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=9",
-        (prints) => {
-          console.log(prints);
-          prints.objectIDs = prints.objectIDs.splice(0, pullAmount);
-          console.log(prints);
-          app.innerHTML = PrintsPage(prints);
-          for (let i = 0; i < pullAmount; i++) {
-            prints.objectIDs[i];
-            apiActions.getRequest(
-              "https://collectionapi.metmuseum.org/public/collection/v1/objects/" +
-                prints.objectIDs[i],
-              (print) => {
-                console.log(print);
-                document.getElementById(print.objectID).innerText = print.title;
-                document.getElementById("artist" + print.objectID).innerText =
-                  print.artistDisplayName;
-                document.getElementById("image" + print.objectID).src =
-                  print.primaryImage;
-              }
-            );
-          }
-        }
-      );
-    }
-  });
+	const app = document.querySelector('#app');
+	app.addEventListener('click', (event) => {
+		if (event.target.classList.contains('art__list_printsList')) {
+			apiActions.getRequest(
+				'https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=9',
+				(prints) => {
+					console.log(prints);
+					const randomNum = Math.floor(Math.random() * 444) + 1;
+					prints.objectIDs = prints.objectIDs.splice(
+						randomNum,
+						pullAmount
+					);
+					console.log(prints);
+					app.innerHTML = PrintsPage(prints);
+					for (let i = 0; i < pullAmount; i++) {
+						prints.objectIDs[i];
+						apiActions.getRequest(
+							'https://collectionapi.metmuseum.org/public/collection/v1/objects/' +
+								prints.objectIDs[i],
+							(print) => {
+								console.log(print);
+								document.getElementById(
+									print.objectID
+								).innerText = print.title;
+								document.getElementById(
+									'year' + print.objectID
+								).innerText = print.objectDate;
+								document.getElementById(
+									'artistNationality' + print.objectID
+								).innerText = print.artistNationality;
+								document.getElementById(
+									'medium' + print.objectID
+								).innerText = print.medium;
+								document.getElementById(
+									'artist' + print.objectID
+								).innerText = print.artistDisplayName;
+								document.getElementById(
+									'image' + print.objectID
+								).src = print.primaryImageSmall;
+							}
+						);
+					}
+				}
+			);
+		}
+	});
 }
 
 function navigateToHomePage() {
@@ -211,15 +261,18 @@ function navigateToHistoryPage() {
 }
 
 window.onload = function () {
-  app.addEventListener("click", (event) => {
-    if (event.target.classList.contains("worldWonder__name")) {
-      const worldWonderUrl =
-        event.target.parentElement.querySelector("#worldWonderId").value;
-      apiActions.getRequest(worldWonderUrl, (worldWonder) => {
-        app.innerHTML = WorldWonderPage(worldWonder);
-      });
-    }
-  });
+	app.addEventListener('click', (event) => {
+		if (event.target.classList.contains('worldWonder__name')) {
+			const worldWonderUrl =
+				event.target.parentElement.querySelector(
+					'#worldWonderId'
+				).value;
+			apiActions.getRequest(worldWonderUrl, (worldWonder) => {
+				app.innerHTML = WorldWonderPage(worldWonder);
+			});
+		}
+	});
+
 };
 
 function navigateToAboutUsPage() {
@@ -230,8 +283,9 @@ function navigateToAboutUsPage() {
 }
 
 function navigateToContactPage() {
-  const contactPageButton = document.querySelector(".nav__list_contactUs");
-  contactPageButton.addEventListener("click", () => {
-    app.innerHTML = ContactUsPage();
-  });
+	const contactPageButton = document.querySelector('.nav__list_contactUs');
+	contactPageButton.addEventListener('click', () => {
+		app.innerHTML = ContactUsPage();
+	});
+
 }

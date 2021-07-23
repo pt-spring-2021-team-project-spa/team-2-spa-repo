@@ -1,0 +1,132 @@
+.art__list {
+    font-family: 'Architects Daughter', cursive;
+    list-style: none;
+    font-size: 1.5rem;
+    letter-spacing: .15rem;
+    margin: 0 auto;
+    max-width: 800px;
+    display: flex;
+    /* justify-content: center; */
+}
+
+.art__list li {
+    border: 2px solid #264653;
+    border-radius: 50px;
+    color: #fffffc;
+    margin: 1.5rem auto;
+    padding: .7rem;
+}
+
+.art__list li:hover {
+    background-color: black;
+    color: #fdffb6;
+    cursor: pointer;
+}
+
+.art__list_asianArtsList {
+    background-color: red;
+}
+
+.art__list_paintingsList {
+    background-color: green;
+}
+
+.art__list_printsList {
+    background-color: blue;
+}
+
+#selectedDepartment {
+    text-transform: uppercase;
+    border: 5px solid yellow;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.artPage {
+    font-size: large;
+    letter-spacing: .03rem;
+    line-height: 1.5;
+    margin-bottom: 2.2rem;
+}
+
+.artPage h2, p {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.artObject__container {
+    display: flex;
+    justify-content: space-around;
+	margin: 2.2rem auto;
+	padding: 2rem;
+	border-radius: 50px;
+    background-color: rgb(232, 232, 232);
+}
+
+#asianArtsPage {
+    border: 4px solid red;
+}
+
+#paintingsPage {
+    border: 4px solid green;
+}
+
+#printsPage {
+    border: 4px solid blue;
+}
+
+.artObject {
+    text-align: left;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.artObjectList {
+    flex:1;
+    margin: 30px 30px;
+    line-height: 2;
+    font-size: 1.2rem;
+    letter-spacing: .03rem;
+}
+
+.artImage {
+    flex:3;
+    display: flex;
+    max-height: 800px;
+}
+
+.artObject img {
+    border-radius: 10px;
+    margin: 0 auto;
+	max-width: 100%;
+}
+
+.artObjectList h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 2rem;
+    line-height: 1.2;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.artYear {
+    font-size: 1.6rem;
+}
+
+@media screen and (max-width: 890px) {
+    .art__list {
+        flex-direction: column;
+        margin: 0 auto;
+    }
+
+    .art__list li {
+        margin: .2rem auto;
+    }
+
+    .artObject {
+        flex-direction: column;
+        text-align: center;
+        display: inline;
+        max-height: 100%;
+    }
+}

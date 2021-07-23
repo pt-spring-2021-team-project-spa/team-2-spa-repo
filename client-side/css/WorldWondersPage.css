@@ -1,0 +1,42 @@
+.worldWonders__container {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr ;
+}
+  
+.worldWonder__name {
+  cursor: pointer;
+}
+  
+.worldWonder__tile_container {
+  background-color: rgba(40, 207, 129, 0.664);
+  border-radius: 50px;
+  /* height: 100%; */
+  /* padding: 5px; */
+  text-align: center;
+}
+
+.test {
+  background-image: linear-gradient(#ff8a00 50%, transparent 50%);
+  border-radius: 50px;
+  padding: 15px;
+  
+}
+
+.content-wrapper {
+  background: rgb(255, 255, 255);
+  border-radius: 50px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  text-align: center;
+  height: 100px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.content-wrapper p {
+  font-family:monospace;
+  font-size:x-large;
+  font-style:italic;
+  color: rgb(51, 255, 0);
+} 
