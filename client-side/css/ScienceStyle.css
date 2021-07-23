@@ -1,18 +1,32 @@
 img {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-    margin-bottom: 3rem;
-    max-width: 90%;
-    transition: box-shadow 0.3s ease-in;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  margin-bottom: 3rem;
+  max-width: 90%;
+  transition: box-shadow 0.3s ease-in;
 }
 
 img:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-@media only screen and (max-width: 767px){
-    .Science__container{
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
+.Science__title {
+  font-family: Orbitron, sans-serif;
+  font-size: 3.236rem;
+  font-weight: bold;
+}
+
+.potd__container_explianation {
+  font-family: Orbitron, sans-serif;
+  font-size: 1.618rem;
+  line-height: 2.5rem;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+@media only screen and (max-width: 767px) {
+  .Science__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
