@@ -7,7 +7,7 @@ export default function PaintingsPage(paintings) {
   <li id="selectedDepartment" class="art__list_paintingsList">European Paintings</li>
   <li class='art__list_printsList'>Drawings and Prints</li>
   </ul>
-  <div class="artObject__container">
+  <div id="paintingsPage" class="artObject__container">
   <div class="artObject">
     ${paintings.objectIDs
 		.map((painting) => {
@@ -17,24 +17,20 @@ export default function PaintingsPage(paintings) {
       </div>
       <div class="artObjectList">
       <h2 id="${painting}">[title-thinking]</h2>
-      <div class="artArtist">
-      <span>Artist: </span>
-      <span id="artist${painting}">[artist-thinking]</span>
-      </div>
       <div class="artYear">
-        <span>Year:</span>
+        <span><b>Date:</b></span>
         <span id="year${painting}">[year-thinking]</span>
       </div>
+      <div class="artArtist">
+      <span><b>Artist:</b></span>
+      <span id="artist${painting}">[artist-thinking]</span>
+      </div>
         <div class="artArtistNationality">
-          <span>Nationality: </span>
+          <span><b>Nationality:</b></span>
           <span id="artistNationality${painting}">[artist-nationality-thinking]</sp>
         </div>
-        <div class="artCountry">
-          <span>Country: </span>
-          <span id="country${painting}">[country-thinking]</span>
-        </div>
         <div class="artMedium">
-          <span>Medium:</span>
+          <span><b>Medium:</b></span>
           <span id="medium${painting}">[meidum-thinking]</span>
         </div>
         </div>

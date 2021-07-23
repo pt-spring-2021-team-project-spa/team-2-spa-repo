@@ -86,9 +86,6 @@ function renderAsianArtsList() {
 									'artistNationality' + asianArt.objectID
 								).innerText = asianArt.artistNationality;
 								document.getElementById(
-									'country' + asianArt.objectID
-								).innerText = asianArt.country;
-								document.getElementById(
 									'medium' + asianArt.objectID
 								).innerText = asianArt.medium;
 								document.getElementById(
@@ -134,9 +131,6 @@ function renderPaintingsList() {
 								document.getElementById(
 									'artistNationality' + painting.objectID
 								).innerText = painting.artistNationality;
-								document.getElementById(
-									'country' + painting.objectID
-								).innerText = painting.country;
 								document.getElementById(
 									'medium' + painting.objectID
 								).innerText = painting.medium;
@@ -185,9 +179,6 @@ function renderPrintsList() {
 								document.getElementById(
 									'artistNationality' + print.objectID
 								).innerText = print.artistNationality;
-								document.getElementById(
-									'country' + print.objectID
-								).innerText = print.country;
 								document.getElementById(
 									'medium' + print.objectID
 								).innerText = print.medium;
