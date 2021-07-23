@@ -5,12 +5,12 @@ import Footer from "./components/Footer.js";
 import Header from "./components/Header.js";
 import PaintingsPage from "./pages/PaintingsPage.js";
 import PrintsPage from "./pages/PrintsPage.js";
-import RoverPage from "./pages/RoverPage.js";
+// import RoverPage from "./pages/RoverPage.js";
 import AsianArtsPage from "./pages/AsianArtsPage.js";
 import HomePage from "./pages/HomePage.js";
-import SatEarthPage from "./pages/SatEarthPage.js";
+// import SatEarthPage from "./pages/SatEarthPage.js";
 import SciencePage from "./pages/SciencePage.js";
-import PotdPage from "./pages/PotdPage.js";
+// import PotdPage from "./pages/PotdPage.js";
 // import HistoryPage from './pages/HistoryPage.js'
 import WorldWondersPage from "./pages/WorldWondersPage.js";
 import WorldWonderPage from "./pages/WorldWonderPage.js";
@@ -29,15 +29,13 @@ function buildPage() {
   renderArtPage();
   renderAsianArtsList();
   renderPaintingsList();
-  renderPotdPage();
-  renderRoverPage();
+  //   renderPotdPage();
   renderPrintsList();
   renderSciencePage();
 }
 
 const app = document.querySelector("#app");
 const pullAmount = 12;
-
 
 function header() {
   const headerElement = document.querySelector(".header");
@@ -168,30 +166,38 @@ function navigateToHomePage() {
 function renderSciencePage() {
   const scienceButton = document.querySelector(".nav__list_science");
   scienceButton.addEventListener("click", () => {
-    const app = document.querySelector("#app");
-    app.innerHTML = SciencePage();
+    const app = document.querySelector("#app"),
+    randomMonth = Math.floor(Math.random() * 11) + 1,
+    randomDay = Math.floor(Math.random() * 28) + 1,
+    fullDate = "date=2020" + randomMonth + randomDay + "&";
+    apiActions.getRequest(
+      "https://api.nasa.gov/planetary/apod?api_key=xgUKiS3GZfXdcS5EGBrtwrFDyAndJSWcBQahlRzX" +
+        fullDate,
+      (photo) => {
+        console.log("photo", photo);
+        app.innerHTML = SciencePage(photo);
+      }
+    );
   });
 }
 
-function renderPotdPage() {
-  const app = document.querySelector("#app");
-  app.addEventListener("click", (event) => {
-    if (event.target.parentElement.classList.contains("science__list")) {
-      const potD = document.querySelector(".science__list_potd");
-      potD.addEventListener("click", () => {
-        apiActions.getRequest(
-          "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
-          (photo) => {
-            console.log("photo", photo);
-            app.innerHTML = PotdPage(photo);
-          }
-        );
-      });
-    }
-  });
-}
-
-
+// function renderPotdPage() {
+//   const app = document.querySelector("#app");
+//   app.addEventListener("click", (event) => {
+//     if (event.target.parentElement.classList.contains("science__list")) {
+//       const potD = document.querySelector(".science__list_potd");
+//       potD.addEventListener("click", () => {
+//         apiActions.getRequest(
+//           "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
+//           (photo) => {
+//             console.log("photo", photo);
+//             app.innerHTML = PotdPage(photo);
+//           }
+//         );
+//       });
+//     }
+//   });
+// }
 
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
