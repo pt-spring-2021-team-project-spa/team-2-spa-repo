@@ -21,6 +21,7 @@ import WorldWonderPage from "./pages/WorldWonderPage.js";
 buildPage();
 
 function buildPage() {
+
   header();
   footer();
   navigateToHomePage();
@@ -276,16 +277,9 @@ window.onload = function () {
 };
 
 function navigateToAboutUsPage() {
-  const aboutUsButton = document.querySelector(".nav__list_aboutUs");
-  aboutUsButton.addEventListener("click", () => {
-    app.innerHTML = AboutUsPage();
-  });
-}
-
-function navigateToContactPage() {
-	const contactPageButton = document.querySelector('.nav__list_contactUs');
-	contactPageButton.addEventListener('click', () => {
-		app.innerHTML = ContactUsPage();
+	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
+	aboutUsButton.addEventListener('click', () => {
+		app.innerHTML = AboutUsPage();
 	});
-
 }
+
