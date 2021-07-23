@@ -39,6 +39,7 @@ export default function GamesPage() {
     <input class="submit_Btn" type="submit" name="submit" value="submitQuiz" onclick="result()">
     
     </div>
+    <p id="number_correct"></p>
     </div>
     `;
 }

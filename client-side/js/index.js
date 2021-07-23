@@ -35,44 +35,6 @@ function buildPage() {
 const app = document.querySelector('#app');
 const pullAmount = 12;
 
-
-const submitButton = document.querySelector(".submit_Btn")
-function result(){
-	var score = 0;
-	if(document.getElementById('correct1').checked)
-	{
-		score++;
-	}
-	if (document.getElementById("correct2").checked) {
-    score++;
-  }
-  if (document.getElementById("correct3").checked) {
-    score++;
-  }
-  if (document.getElementById("correct4").checked) {
-    score++;
-  }
-  if (document.getElementById("correct5").checked) {
-    score++;
-  }
-  
-  submitButton.addEventListener("click", () => {
-    return alert("Your score is: " + score);;
-  });
-  
-}
-
-function navigateToGamesPage() {
-  const gamesButton = document.querySelector(".nav__list_games");
-  gamesButton.addEventListener("click", () => {
-    app.innerHTML = GamesPage();
-  });
-}
-
-
-
-
-
 function header() {
 	const headerElement = document.querySelector('.header');
 	headerElement.innerHTML = Header();
@@ -244,8 +206,13 @@ window.onload=function(){
         });
   }
 
+function navigateToGamesPage() {
+  const gamesButton = document.querySelector(".nav__list_games");
+  gamesButton.addEventListener("click", () => {
+    app.innerHTML = GamesPage();
+  });
+}  
   
-
 function navigateToAboutUsPage() {
   const aboutUsButton = document.querySelector(".nav__list_aboutUs");
   aboutUsButton.addEventListener("click", () => {
@@ -260,5 +227,37 @@ function navigateToContactPage() {
   });
 }
 
-
-
+function result() {
+  const app = document.querySelector("#app");
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("submit_Btn")) {
+      var score = 0;
+      if (document.getElementById("correct1").checked) {
+        score++;
+      }
+      if (document.getElementById("correct2").checked) {
+        score++;
+      }
+      if (document.getElementById("correct3").checked) {
+        score++;
+      }
+      if (document.getElementById("correct4").checked) {
+        score++;
+      }
+      if (document.getElementById("correct5").checked) {
+        score++;
+      }
+      if (score <= 3) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Trekr for a free gift based on age.";
+      } else {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code winner for a free gift based on age";
+      }
+    }
+  });
+}
