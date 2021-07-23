@@ -191,23 +191,7 @@ function renderPotdPage() {
   });
 }
 
-function renderRoverPage() {
-  const app = document.querySelector("#app");
-  app.addEventListener("click", (event) => {
-    if (event.target.parentElement.classList.contains("science__list")) {
-      const Rover = document.querySelector(".science__list_rover");
-      Rover.addEventListener("click", () => {
-        apiActions.getRequest(
-          "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
-          (photos) => {
-            console.log("photo", photos);
-            app.innerHTML = RoverPage(photos);
-          }
-        );
-      });
-    }
-  });
-}
+
 
 function navigateToHistoryPage() {
   const worldWondersButton = document.querySelector(".nav__list_history");
