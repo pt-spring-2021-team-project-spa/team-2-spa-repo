@@ -22,7 +22,6 @@ function buildPage() {
 	navigateToSciencePage();
 	navigateToHistoryPage();
 	navigateToAboutUsPage();
-	navigateToContactPage();
 	renderArtPage();
 	renderAsianArtsList();
 	renderPaintingsList();
@@ -244,9 +243,9 @@ function navigateToAboutUsPage() {
 	});
 }
 
-function navigateToContactPage() {
-	const contactPageButton = document.querySelector('.nav__list_contactUs');
-	contactPageButton.addEventListener('click', () => {
-		app.innerHTML = ContactUsPage();
-	});
-}
+// function navigateToContactPage() {
+// 	const contactPageButton = document.querySelector('.nav__list_contactUs');
+// 	contactPageButton.addEventListener('click', () => {
+// 		app.innerHTML = ContactUsPage();
+// 	});
+// }
