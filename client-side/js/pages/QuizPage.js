@@ -4,7 +4,7 @@ export default function QuizPage() {
   return `
     <h1>Jackr Enterprises</h1>
     <h3>Mystery Educator Quiz</h3>
-  
+  <p class="quiz_p">If you leave the page the quiz resets.</p>
     <div class="quiz_container">
     <div class="Q_1_2">
     <article class="q1">

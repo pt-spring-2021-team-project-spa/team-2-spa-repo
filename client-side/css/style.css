@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+
+
 #app {
 	margin: 2em;
 	padding: 1em;
@@ -91,4 +94,3 @@ body {
 	margin-left: 20px;
 	list-style-type: none;
 }
-
