@@ -37,7 +37,7 @@ function buildPage() {
 
 const app = document.querySelector("#app");
 const pullAmount = 12;
-let NasaKey = "";
+
 
 function header() {
   const headerElement = document.querySelector(".header");
