@@ -1,56 +1,67 @@
-import apiActions from './api-actions/api-actions.js';
+import apiActions from "./api-actions/api-actions.js";
 // import Art from './pages/ArtPage.js'
-import Art from './components/Art.js';
-import Footer from './components/Footer.js';
-import Header from './components/Header.js';
-import PaintingsPage from './pages/PaintingsPage.js';
-import PrintsPage from './pages/PrintsPage.js';
-import AsianArtsPage from './pages/AsianArtsPage.js';
-import HomePage from './pages/HomePage.js';
-// import SciencePage from "./pages/SciencePage.js"
-import WorldWondersPage from './pages/WorldWondersPage.js';
-import WorldWonderPage from './pages/WorldWonderPage.js';
-import AboutUsPage from "./pages/AboutUsPage.js"
+
+import Art from "./components/Art.js";
+import Footer from "./components/Footer.js";
+import Header from "./components/Header.js";
+import PaintingsPage from "./pages/PaintingsPage.js";
+import PrintsPage from "./pages/PrintsPage.js";
+// import RoverPage from "./pages/RoverPage.js";
+import AsianArtsPage from "./pages/AsianArtsPage.js";
+import HomePage from "./pages/HomePage.js";
+// import SatEarthPage from "./pages/SatEarthPage.js";
+import SciencePage from "./pages/SciencePage.js";
+// import PotdPage from "./pages/PotdPage.js";
+// import HistoryPage from './pages/HistoryPage.js'
+import WorldWondersPage from "./pages/WorldWondersPage.js";
+import WorldWonderPage from "./pages/WorldWonderPage.js";
+// import AboutUsPage from "./pages/AboutUsPage.js"
 // import ContactUsPage from "./pages/ContactUsPage.js"
 
 buildPage();
 
 function buildPage() {
-	header();
-	footer();
-	navigateToHomePage();
-	navigateToSciencePage();
-	navigateToHistoryPage();
-	navigateToAboutUsPage();
-	renderArtPage();
-	renderAsianArtsList();
-	renderPaintingsList();
-	renderPrintsList();
+
+  header();
+  footer();
+  navigateToHomePage();
+  navigateToHistoryPage();
+  navigateToAboutUsPage();
+  navigateToContactPage();
+  renderArtPage();
+  renderAsianArtsList();
+  renderPaintingsList();
+  //   renderPotdPage();
+  renderPrintsList();
+  renderSciencePage();
 }
+
 
 const app = document.querySelector('#app');
 const pullAmount = 1;
 
+
 function header() {
-	const headerElement = document.querySelector('.header');
-	headerElement.innerHTML = Header();
+  const headerElement = document.querySelector(".header");
+  headerElement.innerHTML = Header();
 }
 
 function footer() {
-	const footerElement = document.querySelector('.footer');
-	footerElement.innerHTML = Footer();
+  const footerElement = document.querySelector(".footer");
+  footerElement.innerHTML = Footer();
 }
 
 function renderArtPage() {
-	const artListButton = document.querySelector('.nav__list_artList');
-	artListButton.addEventListener('click', () => {
-		console.log('render art page fired');
-		let app = document.querySelector('#app');
-		app.innerHTML = Art();
-	});
+  const artListButton = document.querySelector(".nav__list_artList");
+  artListButton.addEventListener("click", () => {
+    console.log("render art page fired");
+    let app = document.querySelector("#app");
+    app.innerHTML = Art();
+  });
 }
 
 function renderAsianArtsList() {
+
 	const app = document.querySelector('#app');
 	app.addEventListener('click', (event) => {
 		if (event.target.classList.contains('art__list_asianArtsList')) {
@@ -197,29 +208,57 @@ function renderPrintsList() {
 }
 
 function navigateToHomePage() {
-	const homeButton = document.querySelector('.nav__list_home');
-	homeButton.addEventListener('click', () => {
-		app.innerHTML = HomePage();
-	});
+  const homeButton = document.querySelector(".nav__list_home");
+  homeButton.addEventListener("click", () => {
+    app.innerHTML = HomePage();
+  });
 }
 
-function navigateToSciencePage() {
-	const scienceButton = document.querySelector('.nav__list_science');
-	scienceButton.addEventListener('click', () => {
-		app.innerHTML = SciencePage();
-	});
+function renderSciencePage() {
+  const scienceButton = document.querySelector(".nav__list_science");
+  scienceButton.addEventListener("click", () => {
+    const app = document.querySelector("#app"),
+    randomMonth = Math.floor(Math.random() * 1) + 1,
+    randomDay = Math.floor(Math.random() * 18) + 10,
+    fullDate = "&date=2020" + "-" + randomMonth + "-" + randomDay;
+    apiActions.getRequest(
+      "https://api.nasa.gov/planetary/apod?api_key=xgUKiS3GZfXdcS5EGBrtwrFDyAndJSWcBQahlRzX" + fullDate,
+      (photo) => {
+        console.log("photo", photo);
+        app.innerHTML = SciencePage(photo);
+      }
+    );
+  });
 }
+
+// function renderPotdPage() {
+//   const app = document.querySelector("#app");
+//   app.addEventListener("click", (event) => {
+//     if (event.target.parentElement.classList.contains("science__list")) {
+//       const potD = document.querySelector(".science__list_potd");
+//       potD.addEventListener("click", () => {
+//         apiActions.getRequest(
+//           "https://api.nasa.gov/planetary/apod?api_key=WV0eX3Rt3FuYTS6kbJpJ5S5VPlEgCVqgf13mD7NM",
+//           (photo) => {
+//             console.log("photo", photo);
+//             app.innerHTML = PotdPage(photo);
+//           }
+//         );
+//       });
+//     }
+//   });
+// }
 
 function navigateToHistoryPage() {
-	const worldWondersButton = document.querySelector('.nav__list_history');
-	worldWondersButton.addEventListener('click', () => {
-		apiActions.getRequest(
-			'http://localhost:8080/worldWonders',
-			(worldWonders) => {
-				app.innerHTML = WorldWondersPage(worldWonders);
-			}
-		);
-	});
+  const worldWondersButton = document.querySelector(".nav__list_history");
+  worldWondersButton.addEventListener("click", () => {
+    apiActions.getRequest(
+      "http://localhost:8080/worldWonders",
+      (worldWonders) => {
+        app.innerHTML = WorldWondersPage(worldWonders);
+      }
+    );
+  });
 }
 
 window.onload = function () {
@@ -234,6 +273,7 @@ window.onload = function () {
 			});
 		}
 	});
+
 };
 
 function navigateToAboutUsPage() {
@@ -242,3 +282,4 @@ function navigateToAboutUsPage() {
 		app.innerHTML = AboutUsPage();
 	});
 }
+
