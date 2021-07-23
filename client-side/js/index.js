@@ -1,5 +1,4 @@
 import apiActions from './api-actions/api-actions.js';
-// import Art from './pages/ArtPage.js'
 import Art from './components/Art.js';
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
@@ -7,12 +6,12 @@ import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
-// import SciencePage from "./pages/SciencePage.js"
+import SciencePage from "./pages/SciencePage.js"
 import QuizPage from "./pages/QuizPage.js";
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
-// import ContactUsPage from "./pages/ContactUsPage.js"
+
 
 buildPage();
 
@@ -260,13 +259,6 @@ function navigateToAboutUsPage() {
   const aboutUsButton = document.querySelector(".nav__list_aboutUs");
   aboutUsButton.addEventListener("click", () => {
     app.innerHTML = AboutUsPage();
-  });
-}
-
-function navigateToContactPage() {
-  const contactPageButton = document.querySelector(".nav__list_contactUs");
-  contactPageButton.addEventListener("click", () => {
-    app.innerHTML = ContactUsPage();
   });
 }
 
