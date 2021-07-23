@@ -10,6 +10,7 @@ import HomePage from './pages/HomePage.js';
 // import SciencePage from "./pages/SciencePage.js"
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
+import AddWorldWonderPage from './pages/AddWorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
 // import ContactUsPage from "./pages/ContactUsPage.js"
 
@@ -229,7 +230,10 @@ function navigateToHistoryPage() {
 				app.innerHTML = WorldWondersPage(worldWonders);
 			}
 		);
+		addWorldWonder();
 	});
+
+	
 }
 
 window.onload = function () {
@@ -245,6 +249,38 @@ window.onload = function () {
 		}
 	});
 };
+
+function addWorldWonder(){
+	app.addEventListener('click', ()=>{
+		const navToAdd = document.querySelector('.add__worldWonder');
+			navToAdd.addEventListener('click', ()=>{
+				app.innerHTML = AddWorldWonderPage();
+			})
+
+			
+		app.addEventListener('click', ()=>{
+			if(event.target.classList.contains('add_worldWonder__submit')){			
+				const worldWonderName = event.target.parentElement.querySelector('.add_worldWonder__name').value;
+				apiActions.postRequest('http://localhost:8080/create-worldWonder',{
+					worldWonderName: worldWonderName,
+					worldWonderLocation: worldWonderLocation,
+					worldWonderYearOfConstruction: worldWonderYearOfConstruction,
+					worldWonderHeight: worldWonderHeight,
+					worldWonderLength: worldWonderLength,
+					worldWonderAge: worldWonderAge,
+					worldWonderFunFact: worldWonderFunFact,
+					worldWonderMyth: worldWonderMyth,
+					worldWonderImgUrl: worldWonderImgUrl
+				}, (worldWonders) => app.innerHTML = WorldWonders(worldWonders));
+			}
+		})
+	});
+}
+
+// 		const addWorldWonderButton = document.querySelector('.add_worldWonder__submit')
+		// addWorldWonderButton.addEventListener('click',()=>{
+		// console.log('FIRING!');
+		// })
 
 function navigateToAboutUsPage() {
 	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
