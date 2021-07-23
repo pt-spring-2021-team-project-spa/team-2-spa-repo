@@ -1,5 +1,5 @@
 export default function Header() {
-    return `
+	return `
         <ul class='nav__list'>
             <li class='nav__list_home'>Home</li>
             <li class='nav__list_artList'>Art</li>
