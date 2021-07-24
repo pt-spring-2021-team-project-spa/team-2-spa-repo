@@ -1,9 +1,10 @@
-package org.wecancodeit.mysteryeducator.models;
+package org.wecancodeit.mysteryeducator;
+
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import java.util.Objects;
 
 @Entity
@@ -11,7 +12,9 @@ public class WorldWonders {
 
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
+    private String url;
     private String name;
     private String location;
     private String yearOfConstruction;
@@ -21,7 +24,7 @@ public class WorldWonders {
     private String funFact;
     private String myth;
     private String imgUrl;
-    private String url;
+
 
     public WorldWonders(){
 

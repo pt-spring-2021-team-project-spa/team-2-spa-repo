@@ -10,6 +10,7 @@ import SciencePage from "./pages/SciencePage.js"
 import QuizPage from "./pages/QuizPage.js";
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
+import AddWorldWonderPage from './pages/AddWorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
 
 
@@ -225,15 +226,16 @@ function renderSciencePage() {
 }
 
 function navigateToHistoryPage() {
-  const worldWondersButton = document.querySelector(".nav__list_history");
-  worldWondersButton.addEventListener("click", () => {
-    apiActions.getRequest(
-      "http://localhost:8080/worldWonders",
-      (worldWonders) => {
-        app.innerHTML = WorldWondersPage(worldWonders);
-      }
-    );
-  });
+	const worldWondersButton = document.querySelector('.nav__list_history');
+	worldWondersButton.addEventListener('click', () => {
+		apiActions.getRequest(
+			'http://localhost:8080/worldWonders',
+			(worldWonders) => {
+				app.innerHTML = WorldWondersPage(worldWonders);
+			}
+		);
+		navToAddWorldWonder();
+	});
 }
 
 window.onload = function () {
@@ -247,9 +249,57 @@ window.onload = function () {
 				app.innerHTML = WorldWonderPage(worldWonder);
 			});
 		}
+		createWonder();
 	});
 
 };
+
+
+function navToAddWorldWonder(){
+	app.addEventListener('click', ()=>{
+		const navToAdd = document.querySelector('.add__worldWonder');
+			navToAdd.addEventListener('click', ()=>{
+				app.innerHTML = AddWorldWonderPage();
+			})
+	});
+}
+
+function createWonder() {
+	app.addEventListener('click', (event)=>{
+		if(event.target.classList.contains('add_worldWonder__submit')){			
+			const worldWonderName = event.target.parentElement.querySelector('.add_worldWonder__name').value;
+			const worldWonderLocation = event.target.parentElement.querySelector('.add_worldWonder__location').value;
+			const worldWonderYearOfConstruction = event.target.parentElement.querySelector('.add_worldWonder__yearOfConstruction').value;
+			const worldWonderHeight = event.target.parentElement.querySelector('.add_worldWonder__height').value;
+			const worldWonderLength = event.target.parentElement.querySelector('.add_worldWonder__length').value;
+			const worldWonderAge = event.target.parentElement.querySelector('.add_worldWonder__age').value;
+			const worldWonderFunFact = event.target.parentElement.querySelector('.add_worldWonder__funFact').value;
+			const worldWonderMyth = event.target.parentElement.querySelector('.add_worldWonder__myth').value;
+			const worldWonderImgUrl = event.target.parentElement.querySelector('.add_worldWonder__imgUrl').value;
+			const worldWonderUrl = event.target.parentElement.querySelector('.add_worldWonder__url').value;
+			apiActions.postRequest('http://localhost:8080/create-worldWonder',{
+				worldWonderName: worldWonderName,
+				worldWonderLocation: worldWonderLocation,
+				worldWonderYearOfConstruction: worldWonderYearOfConstruction,
+				worldWonderHeight: worldWonderHeight,
+				worldWonderLength: worldWonderLength,
+				worldWonderAge: worldWonderAge,
+				worldWonderFunFact: worldWonderFunFact,
+				worldWonderMyth: worldWonderMyth,
+				worldWonderImgUrl: worldWonderImgUrl,
+				worldWonderUrl: worldWonderUrl
+			}, (worldWonders) => app.innerHTML = WorldWonders(worldWonders));
+
+			apiActions.getRequest(
+				'http://localhost:8080/worldWonders',
+				(worldWonders) => {
+					app.innerHTML = WorldWondersPage(worldWonders);
+				}
+			);
+		}
+	});
+}
+
 
 function navigateToQuizPage() {
   const quizButton = document.querySelector(".nav__list_quiz");
@@ -258,6 +308,7 @@ function navigateToQuizPage() {
   });
 }  
   
+
 function navigateToAboutUsPage() {
   const aboutUsButton = document.querySelector(".nav__list_aboutUs");
   aboutUsButton.addEventListener("click", () => {
