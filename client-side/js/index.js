@@ -1,5 +1,4 @@
 import apiActions from './api-actions/api-actions.js';
-// import Art from './pages/ArtPage.js'
 import Art from './components/Art.js';
 import Footer from './components/Footer.js';
 import Header from './components/Header.js';
@@ -7,12 +6,13 @@ import PaintingsPage from './pages/PaintingsPage.js';
 import PrintsPage from './pages/PrintsPage.js';
 import AsianArtsPage from './pages/AsianArtsPage.js';
 import HomePage from './pages/HomePage.js';
-// import SciencePage from "./pages/SciencePage.js"
+import SciencePage from "./pages/SciencePage.js"
+import QuizPage from "./pages/QuizPage.js";
 import WorldWondersPage from './pages/WorldWondersPage.js';
 import WorldWonderPage from './pages/WorldWonderPage.js';
 import AddWorldWonderPage from './pages/AddWorldWonderPage.js';
 import AboutUsPage from "./pages/AboutUsPage.js"
-// import ContactUsPage from "./pages/ContactUsPage.js"
+
 
 buildPage();
 
@@ -20,39 +20,42 @@ function buildPage() {
 	header();
 	footer();
 	navigateToHomePage();
-	navigateToSciencePage();
+	renderSciencePage();
 	navigateToHistoryPage();
+    navigateToQuizPage();
+	result();
 	navigateToAboutUsPage();
-	navigateToContactPage();
 	renderArtPage();
 	renderAsianArtsList();
 	renderPaintingsList();
 	renderPrintsList();
 }
 
+
 const app = document.querySelector('#app');
 const pullAmount = 1;
 
 function header() {
-	const headerElement = document.querySelector('.header');
-	headerElement.innerHTML = Header();
+  const headerElement = document.querySelector(".header");
+  headerElement.innerHTML = Header();
 }
 
 function footer() {
-	const footerElement = document.querySelector('.footer');
-	footerElement.innerHTML = Footer();
+  const footerElement = document.querySelector(".footer");
+  footerElement.innerHTML = Footer();
 }
 
 function renderArtPage() {
-	const artListButton = document.querySelector('.nav__list_artList');
-	artListButton.addEventListener('click', () => {
-		console.log('render art page fired');
-		let app = document.querySelector('#app');
-		app.innerHTML = Art();
-	});
+  const artListButton = document.querySelector(".nav__list_artList");
+  artListButton.addEventListener("click", () => {
+    console.log("render art page fired");
+    let app = document.querySelector("#app");
+    app.innerHTML = Art();
+  });
 }
 
 function renderAsianArtsList() {
+
 	const app = document.querySelector('#app');
 	app.addEventListener('click', (event) => {
 		if (event.target.classList.contains('art__list_asianArtsList')) {
@@ -86,9 +89,6 @@ function renderAsianArtsList() {
 								document.getElementById(
 									'artistNationality' + asianArt.objectID
 								).innerText = asianArt.artistNationality;
-								document.getElementById(
-									'country' + asianArt.objectID
-								).innerText = asianArt.country;
 								document.getElementById(
 									'medium' + asianArt.objectID
 								).innerText = asianArt.medium;
@@ -135,9 +135,6 @@ function renderPaintingsList() {
 								document.getElementById(
 									'artistNationality' + painting.objectID
 								).innerText = painting.artistNationality;
-								document.getElementById(
-									'country' + painting.objectID
-								).innerText = painting.country;
 								document.getElementById(
 									'medium' + painting.objectID
 								).innerText = painting.medium;
@@ -187,9 +184,6 @@ function renderPrintsList() {
 									'artistNationality' + print.objectID
 								).innerText = print.artistNationality;
 								document.getElementById(
-									'country' + print.objectID
-								).innerText = print.country;
-								document.getElementById(
 									'medium' + print.objectID
 								).innerText = print.medium;
 								document.getElementById(
@@ -208,17 +202,27 @@ function renderPrintsList() {
 }
 
 function navigateToHomePage() {
-	const homeButton = document.querySelector('.nav__list_home');
-	homeButton.addEventListener('click', () => {
-		app.innerHTML = HomePage();
-	});
+  const homeButton = document.querySelector(".nav__list_home");
+  homeButton.addEventListener("click", () => {
+    app.innerHTML = HomePage();
+  });
 }
 
-function navigateToSciencePage() {
-	const scienceButton = document.querySelector('.nav__list_science');
-	scienceButton.addEventListener('click', () => {
-		app.innerHTML = SciencePage();
-	});
+function renderSciencePage() {
+  const scienceButton = document.querySelector(".nav__list_science");
+  scienceButton.addEventListener("click", () => {
+    const app = document.querySelector("#app"),
+    randomMonth = Math.floor(Math.random() * 1) + 1,
+    randomDay = Math.floor(Math.random() * 18) + 10,
+    fullDate = "&date=2020" + "-" + randomMonth + "-" + randomDay;
+    apiActions.getRequest(
+      "https://api.nasa.gov/planetary/apod?api_key=xgUKiS3GZfXdcS5EGBrtwrFDyAndJSWcBQahlRzX" + fullDate,
+      (photo) => {
+        console.log("photo", photo);
+        app.innerHTML = SciencePage(photo);
+      }
+    );
+  });
 }
 
 function navigateToHistoryPage() {
@@ -231,10 +235,7 @@ function navigateToHistoryPage() {
 			}
 		);
 		navToAddWorldWonder();
-		
 	});
-
-	
 }
 
 window.onload = function () {
@@ -250,7 +251,9 @@ window.onload = function () {
 		}
 		createWonder();
 	});
+
 };
+
 
 function navToAddWorldWonder(){
 	app.addEventListener('click', ()=>{
@@ -297,16 +300,80 @@ function createWonder() {
 	});
 }
 
+
+function navigateToQuizPage() {
+  const quizButton = document.querySelector(".nav__list_quiz");
+  quizButton.addEventListener("click", () => {
+    app.innerHTML = QuizPage();
+  });
+}  
+  
+
 function navigateToAboutUsPage() {
-	const aboutUsButton = document.querySelector('.nav__list_aboutUs');
-	aboutUsButton.addEventListener('click', () => {
-		app.innerHTML = AboutUsPage();
-	});
+  const aboutUsButton = document.querySelector(".nav__list_aboutUs");
+  aboutUsButton.addEventListener("click", () => {
+    app.innerHTML = AboutUsPage();
+  });
 }
 
-function navigateToContactPage() {
-	const contactPageButton = document.querySelector('.nav__list_contactUs');
-	contactPageButton.addEventListener('click', () => {
-		app.innerHTML = ContactUsPage();
-	});
+function result() {
+  const app = document.querySelector("#app");
+  app.addEventListener("click", (event) => {
+    if (event.target.classList.contains("submit_Btn")) {
+      var score = 0;
+      if (document.getElementById("correct1").checked) {
+        score++;
+      }
+      if (document.getElementById("correct2").checked) {
+        score++;
+      }
+      if (document.getElementById("correct3").checked) {
+        score++;
+      }
+      if (document.getElementById("correct4").checked) {
+        score++;
+      }
+      if (document.getElementById("correct5").checked) {
+        score++;
+    } if (document.getElementById("correct6").checked) {
+      score++;
+    } 
+	if (score == 0) {
+      number_correct.textContent =
+        "Your result is " +
+        score +
+        " right. Please try again";
+    } else if (score == 1) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Beginner Trekr for a free gift based on age.";
+    } else if (score == 2) {
+      number_correct.textContent =
+        "Your result is " +
+        score +
+        " right. Use promo code Intermediate Trekr for a free gift based on age.";
+    } else if (score == 3) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Experienced Trekr for a free gift based on age.";
+      } else if (score == 4) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Advanced Trekr for a free gift based on age.";
+      } else if (score == 5) {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Awesome Trekr for a free gift based on age.";
+      } else {
+        number_correct.textContent =
+          "Your result is " +
+          score +
+          " right. Use promo code Ultimate Trekr for our grand prize based on age";
+      }
+    }
+  });
 }
