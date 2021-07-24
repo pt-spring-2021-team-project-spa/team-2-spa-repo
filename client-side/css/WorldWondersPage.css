@@ -36,9 +36,9 @@
 
 .content-wrapper p {
   font-family:monospace;
-  font-size:x-large;
+  font-size:66px;
   font-style:italic;
-  color: rgb(51, 255, 0);
+  color: lime;
 } 
 
 .add__worldWonder, #test5{

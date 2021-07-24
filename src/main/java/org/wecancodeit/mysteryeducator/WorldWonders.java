@@ -14,7 +14,7 @@ public class WorldWonders {
     @GeneratedValue
     @JsonIgnore
     private Long id;
-    @JsonIgnore
+    private String url;
     private String name;
     private String location;
     private String yearOfConstruction;
@@ -24,7 +24,7 @@ public class WorldWonders {
     private String funFact;
     private String myth;
     private String imgUrl;
-    private String url;
+
 
     public WorldWonders(){
 
