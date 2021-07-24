@@ -39,6 +39,9 @@
   font-size:66px;
   font-style:italic;
   color: lime;
+  max-width: none;
+  margin: 10%;
+  padding-top: 2px;
 } 
 
 .add__worldWonder, #test5{
